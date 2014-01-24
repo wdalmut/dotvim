@@ -26,6 +26,7 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-surround'
 Bundle 'rbgrouleff/bclose.vim'
+Bundle 'kien/ctrlp.vim'
 
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
