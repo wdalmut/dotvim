@@ -1,4 +1,4 @@
-# My dot vim
+# My dot vim:
 
 Clone this repository:
 

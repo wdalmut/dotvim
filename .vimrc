@@ -25,6 +25,7 @@ Bundle 'vim-php/tagbar-phpctags.vim'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-surround'
+Bundle 'rbgrouleff/bclose.vim'
 
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
@@ -55,6 +56,7 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
 
 " enable new 7.3 persistent undo feature
 "set undofile
