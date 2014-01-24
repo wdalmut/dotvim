@@ -15,10 +15,15 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
-Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'gregsexton/gitv'
+Bundle 'Raimondi/delimitMate'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-php/tagbar-phpctags.vim'
+Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'tpope/vim-surround'
 
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
@@ -39,6 +44,16 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
+
+" Remove arrows
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 " enable new 7.3 persistent undo feature
 "set undofile
@@ -286,8 +301,6 @@ au FileType vim,php,c,python,html,twig,yml,xml,js,md au BufWritePre *.* :%s/\s\+
 
 "run file with PHP CLI (CTRL-M)
 au FileType php noremap <C-M> :w!<CR>:!$HOME/bin/php %<CR>
-" " PHP parser check (CTRL-L)
-au FileType php noremap <C-L> :!$HOME/bin/php -l %<CR>
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python set foldmethod=indent
 au FileType python set foldnestmax=2
