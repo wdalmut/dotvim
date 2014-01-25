@@ -16,7 +16,6 @@ Bundle 'corntrace/bufexplorer'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
@@ -234,18 +233,6 @@ set guicursor=a:blinkon0
 " Plugins tuning
 "
 
-" NERDTree
-let NERDTreeDirArrows=1
-let NERDTreeMinimalUI=1
-let NERDTreeIgnore=['\.o$', '\.pyc$', '\.php\~$']
-let NERDTreeWinSize = 35
-" Make sure that when NT root is changed, Vim's pwd is also updated
-let NERDTreeChDirMode = 2
-let NERDTreeShowLineNumbers = 0
-let NERDTreeAutoCenter = 1
-" Open NERDTree on startup, when no file has been specified
-"autocmd VimEnter * if !argc() | NERDTree | endif
-
 " Project
 let g:proj_flags="FisLt"
 let g:proj_window_width = 40
@@ -319,7 +306,7 @@ let mapleader = ","
 imap <Leader>z <ESC>l
 vmap <Leader>z <ESC><ESC>l
 
-" Easy window resizing (good to use with NERDTree)
+" Easy window resizing
 map <Leader>h 1<C-w><Bar>
 map <Leader>hh 35<C-w><Bar>
 nmap <Leader>cat :!cat ~/.vbuf<CR>
