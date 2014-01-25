@@ -270,6 +270,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-p>"
 let g:php_folding = 2
 set foldlevel=5
 
+" Use j and k with omnicomplete box
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
