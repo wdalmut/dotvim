@@ -85,3 +85,17 @@ public function getStrategy()
 	return $this->strategy;
 }
 endsnippet
+
+snippet zf2route "ZF2 route"
+"$1" => array(
+	"type" => "$2",
+	"options" => array(
+		"route" => "$3",
+		'defaults' => array(
+			'controller' => '$4',
+			'action' => '$5',
+		)
+	),
+	'may_terminate' => $6
+),
+endsnippet
