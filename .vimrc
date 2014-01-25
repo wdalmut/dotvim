@@ -1,6 +1,7 @@
 "
 " MAIN CUSTOMIZATION FILE
 "
+set term=screen-256color
 
 " Purge previous auto commands (in case vimrc is run twice)
 autocmd!
@@ -56,6 +57,7 @@ set iminsert=0
 set imsearch=0
 
 colorscheme molokai
+
 
 " make sure that ZF standards for maximum line height are honoured
 set colorcolumn=120
@@ -242,7 +244,7 @@ let NERDTreeChDirMode = 2
 let NERDTreeShowLineNumbers = 0
 let NERDTreeAutoCenter = 1
 " Open NERDTree on startup, when no file has been specified
-autocmd VimEnter * if !argc() | NERDTree | endif
+"autocmd VimEnter * if !argc() | NERDTree | endif
 
 " Project
 let g:proj_flags="FisLt"
@@ -447,9 +449,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
