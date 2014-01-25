@@ -29,12 +29,14 @@ Bundle 'tpope/vim-surround'
 Bundle 'rbgrouleff/bclose.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
+Bundle 'brookhong/DBGPavim'
+Bundle 'edkolev/tmuxline.vim'
 
 " Unmap arrow keys
-no <down> ddp
+no <down> <Nop>
 no <left> <Nop>
 no <right> <Nop>
-no <up> ddkP
+no <up> <Nop>
 ino <down> <Nop>
 ino <left> <Nop>
 ino <right> <Nop>
@@ -223,10 +225,7 @@ let loaded_matchparen = 1
 let g:netrw_browse_split = 1
 
 " Make sure cursor is not blinking
-set gcr=a:blinkwait0,a:block-cursor
-if has("gui_macvim")
-    hi CursorColumn guibg=#cae682
-endif
+set guicursor=a:blinkon0
 
 "
 " Plugins tuning
