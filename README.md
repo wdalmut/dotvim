@@ -3,12 +3,16 @@
 Clone this repository:
 
 ```
-git clone --recursive https://github.com/wdalmut/dotvim.git
+git clone --recursive https://github.com/wdalmut/dotvim.git .vim
+```
+
+Link vimrc file
+
+```
+ln -s ~/.vim/.vimrc ~/.vimrc
 ```
 
 Now launch vim and issue the install command...
-
-You have to install bundles
 
 ```
 :BundleInstall
