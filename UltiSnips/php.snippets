@@ -1,4 +1,46 @@
-snippet test "PHP UnitTest Snippet"
+snippet class "PHP Empty Class"
+namespace $1;
+
+class $2
+{
+	$3
+}
+endsnippet
+
+snippet classe "PHP Empty Class Extends"
+namespace $1;
+
+class $2 extends $3
+{
+	$4
+}
+endsnippet
+
+snippet singleton "PHP Singleton Method"
+private static $instance;
+
+public static function getInstance()
+{
+	if (!self::$instance) {
+		self::$instance = new self();
+	}
+
+	return self::$instance;
+}
+
+$1
+endsnippet
+
+snippet factory "PHP Factory method"
+public static function factory($1)
+{
+	$2
+}
+
+$3
+endsnippet
+
+snippet testcase "PHP UnitTest Snippet"
 namespace $1;
 
 class $2Test extends \PHPUnit_Framework_TestCase
@@ -10,9 +52,21 @@ class $2Test extends \PHPUnit_Framework_TestCase
 		$this->object = new $2();
 	}
 
-	public function test$3()
-	{
-		$4
-	}
+	$3
 }
 endsnippet
+
+snippet test "Add a new test method"
+public function test$1()
+{
+	$2
+}
+endsnippet
+
+snippet trait "PHP Trait"
+trait $1
+{
+	$2
+}
+endsnippet
+

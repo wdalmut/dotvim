@@ -28,6 +28,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-surround'
 Bundle 'rbgrouleff/bclose.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'ervandew/supertab'
 
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
@@ -50,17 +51,6 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
-
-" Remove arrows
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
-
 
 " enable new 7.3 persistent undo feature
 "set undofile
@@ -266,9 +256,8 @@ let g:UltiSnipsJumpBackwardTrigger="<C-p>"
 let g:php_folding = 2
 set foldlevel=5
 
-"
-" Large File
-"
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 "
 " PHP
@@ -374,10 +363,6 @@ nmap <Leader>p :r ~/.vbuf<CR>
 map <Leader>s :w<CR>
 imap <Leader>s <ESC>:w<CR>
 vmap <Leader>s <ESC><ESC>:w<CR>
-" This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
-inoremap jj <Esc>l
-nnoremap JJJJ <Nop>
-inoremap <C-[> <Esc>
 
 " Locate file in hierarchy quickly
 map <Leader>T :NERDTreeFind<CR>
