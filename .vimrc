@@ -30,6 +30,20 @@ Bundle 'rbgrouleff/bclose.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
 
+" Unmap arrow keys
+no <down> ddp
+no <left> <Nop>
+no <right> <Nop>
+no <up> ddkP
+ino <down> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+ino <up> <Nop>
+vno <down> <Nop>
+vno <left> <Nop>
+vno <right> <Nop>
+vno <up> <Nop>
+
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
 
@@ -219,7 +233,7 @@ endif
 "
 
 " NERDTree
-let NERDTreeDirArrows=0
+let NERDTreeDirArrows=1
 let NERDTreeMinimalUI=1
 let NERDTreeIgnore=['\.o$', '\.pyc$', '\.php\~$']
 let NERDTreeWinSize = 35
