@@ -144,6 +144,7 @@ set showmode
 
 " Show line, column number, and relative position within a file in the status line
 set ruler
+set relativenumber
 
 " Show line numbers - could be toggled on/off on-fly by pressing F6
 set number
@@ -346,8 +347,7 @@ nmap <Leader>V :source $MYVIMRC<CR>
 nmap <Leader>v :vsp $MYVIMRC<CR>
 nmap <Leader>todo :vsp ~/projects.todo.txt<CR>
 
-au FileType php noremap <Leader>k <ESC>:!phpunit --configuration tests/ --group cur %<CR>
-au FileType php noremap <Leader>j <ESC>:!phpunit --configuration tests/ %<CR>
+au FileType php noremap <Leader>t <ESC>:!phpunit --configuration tests/ <CR>
 
 map <Leader>l :BufExplorer<CR>
 imap <Leader>l <ESC>:BufExplorer<CR>
