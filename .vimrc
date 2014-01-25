@@ -38,12 +38,14 @@ syntax on
 set iminsert=0
 set imsearch=0
 
-" make sure that ZF standards for maximum line height are honoured
 colorscheme molokai
+
+" make sure that ZF standards for maximum line height are honoured
 set colorcolumn=120
 let &colorcolumn=join(range(121,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
+" Remove bars
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
@@ -222,24 +224,18 @@ if has("gui_macvim")
     hi CursorColumn guibg=#cae682
 endif
 
-" TeX/LaTeX support (via vim-latex-suite)
-filetype plugin on
-set grepprg=grep\ -nH\ $*
-filetype indent on
-let g:tex_flavor='latex'
-
 "
 " Plugins tuning
 "
 
 " NERDTree
-let NERDTreeDirArrows=1
+let NERDTreeDirArrows=0
 let NERDTreeMinimalUI=1
 let NERDTreeIgnore=['\.o$', '\.pyc$', '\.php\~$']
 let NERDTreeWinSize = 35
 " Make sure that when NT root is changed, Vim's pwd is also updated
 let NERDTreeChDirMode = 2
-let NERDTreeShowLineNumbers = 1
+let NERDTreeShowLineNumbers = 0
 let NERDTreeAutoCenter = 1
 " Open NERDTree on startup, when no file has been specified
 autocmd VimEnter * if !argc() | NERDTree | endif
@@ -252,9 +248,6 @@ let g:proj_window_width = 40
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': [] }
-
-" Command-T Plugin
-let g:CommandTMaxHeight = 25
 
 " Gist
 let g:gist_detect_filetype = 1
@@ -272,12 +265,6 @@ let g:UltiSnipsJumpBackwardTrigger="<C-p>"
 "
 let g:php_folding = 2
 set foldlevel=5
-
-"
-" Command-T
-"
-" never show auto-generated api-docs files
-set wildignore=api-docs/**,public/api-docs/**,app/cache/**,*.php~
 
 "
 " Large File
@@ -337,10 +324,6 @@ map <Leader>tags :!ctags<CR> :set tags=tags<CR>
 " Large file
 let g:LargeFile = 2
 
-" Gist plugin
-let g:gist_show_privates = 1
-let g:gist_private = 1
-
 " Easy keymap switing
 imap <Leader>r <C-^>
 nmap <Leader>r a<C-^><ESC>
@@ -355,31 +338,13 @@ map td :tabclose<CR>
 " when you forgot to open your file with sudo
 cmap w!! %!sudo tee > /dev/null %
 
-" Auto-complete - more smart menu see: http://bit.ly/d1ILFI
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" Keyword (from current file only) completion - NetBeans habits
-imap <C-k> <C-x><C-n>
-
 " easy way to edit reload .vimrc
 nmap <Leader>V :source $MYVIMRC<CR>
 nmap <Leader>v :vsp $MYVIMRC<CR>
 nmap <Leader>todo :vsp ~/projects.todo.txt<CR>
 
-" F3 search lines with FuzzyFinder
-map <leader>fline :FufLine<CR>
-imap <leader>fline <ESC>:FufLine<CR>
-vmap <leader>fline <ESC><ESC>:FufLine<CR>
-
-
 au FileType php noremap <Leader>k <ESC>:!phpunit --configuration tests/ --group cur %<CR>
 au FileType php noremap <Leader>j <ESC>:!phpunit --configuration tests/ %<CR>
-" au FileType php noremap <F5> <ESC>:!php -f %<CR>
-" au FileType python noremap <F5> <ESC>:!python %<CR>
-" au FileType sql noremap <F5> <ESC>:!mysql < %<CR>
-" au FileType javascript noremap <F5> <ESC>:!js -strict -w -f %<CR>
-" au FileType vim noremap <F5> <ESC>:so %<CR>
 
 map <Leader>l :BufExplorer<CR>
 imap <Leader>l <ESC>:BufExplorer<CR>
@@ -390,11 +355,6 @@ map ]] ]c
 map [[ [c
 map <Leader>gdi :Gdiff<CR>
 map <Leader>gst :Gstatus<CR>
-
-" F8 See List of Bookmarks
-map <F7> :MarksBrowser<CR>
-imap <F7> <ESC>:MarksBrowser<CR>
-vmap <F7> <ESC>:MarksBrowser<CR>
 
 " Ability to open tag'ed document as vertical split
 " or a new tab
@@ -419,10 +379,6 @@ inoremap jj <Esc>l
 nnoremap JJJJ <Nop>
 inoremap <C-[> <Esc>
 
-" reload uwsgi
-map <Leader>u :silent !touch /tmp/uwsgi-reload.txt<CR><C-l>
-imap <Leader>u <ESC>:silent !touch /tmp/uwsgi-reload.txt<CR><C-l>
-vmap <Leader>u <ESC><ESC>:silent !touch /tmp/uwsgi-reload.txt<CR><C-l>
 " Locate file in hierarchy quickly
 map <Leader>T :NERDTreeFind<CR>
 map <Leader>tree :NERDTreeToggle<CR>
@@ -432,10 +388,6 @@ map <Leader>tree :NERDTreeToggle<CR>
 map ,cd :cd %:p:h
 " close buffer using bclose plugin (window is not closed)
 map ,w :Bclose<CR>
-map ,diff :call Svndiff('next')<CR>
-imap ,diff <ESC>:call Svndiff('next')<CR>
-map ,diffc :call Svndiff('clear')<CR>
-imap ,diffc <ESC>:call Svndiff('clear')<CR>
 " switch to upper/lower window quickly
 map <C-J> 5j
 map <C-K> 5k
@@ -446,13 +398,14 @@ imap <C-L> @@@<ESC>hhkywjl?@@@<CR>P/@@@<CR>3s
 " map ,f to display all lines with keyword under cursor and ask which one to
 " jump to
 nmap ,f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-" use <F6> to toggle line numbers
-nmap <silent> <F6> :set number!<CR>
+
 " page down with <Space>
 " nmap <Space> <PageDown>
+
 " open filename under cursor in a new window (use current file's working
 " directory)
 nmap gf :new %:p:h/<cfile><CR>
+
 " map <Alt-p> and <Alt-P> to paste below/above and reformat
 nnoremap <Esc>P  P'[v']=
 nnoremap <Esc>p  p'[v']=
@@ -476,18 +429,16 @@ augroup filetypedetect
     au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 augroup END
 
-nnoremap <C-F5>c :exe ':silent !chromium-browser %'<CR>
-map <Leader>co <Esc>:call CompileRunGcc()<CR>
+" Make for C project
 map <Leader>m <Esc>:!clear && make clean && make && ./randomstring<CR>
+" Compile single file
+map <Leader>co <Esc>:call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
-    exec "!clear && gcc -Wall -std=c99 -pedantic-errors % -o %< && echo '\\n--------------------------------------------\\n' && ./%<"
+    exec "!clear && gcc -Wall -pedantic-errors % -o %< && echo '\\n--------------------------------------------\\n' && ./%<"
     "exec "! ./%<"
 endfunc
 
-nmap <F8> :Cnext<CR>
-nmap <F10> :Cstep<CR>
-nmap <Leader>pep :!pep8 %<CR>
 nmap <Leader>x :TagbarToggle<CR>
 
 let g:EasyMotion_leader_key = '<Leader><Leader>'
@@ -501,12 +452,8 @@ let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
