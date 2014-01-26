@@ -29,7 +29,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'rbgrouleff/bclose.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
-Bundle 'brookhong/DBGPavim'
 Bundle 'edkolev/tmuxline.vim'
 
 " Unmap arrow keys
@@ -401,11 +400,7 @@ nnoremap <Esc>p  p'[v']=
 vnoremap < <gv
 vnoremap > >gv
 " turn off search highlighting
-nmap <silent> <Leader>n :silent :nohlsearch<CR>:exe printf('match IncSearch /\V\<%s\>/', escape(expand(''), '/\'))<CR>
-
-
-" highlight variables
-nmap <silent> <leader>show :exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))<CR>
+nmap <silent> <Leader>n :silent :nohlsearch<CR>
 
 " Make sure that CTRL-A (used by gnu screen) is redefined
 noremap <Leader>inc <C-A>
@@ -437,3 +432,4 @@ if !exists('g:airline_symbols')
 endif
 
 let g:airline_powerline_fonts = 1
+
