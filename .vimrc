@@ -45,6 +45,10 @@ vno <left> <Nop>
 vno <right> <Nop>
 vno <up> <Nop>
 
+" Exit insert mode with jk combination instead esc
+:inoremap jk <esc>
+":inoremap <esc> <nop>
+
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
 
@@ -261,6 +265,7 @@ set foldlevel=5
 " Use j and k with omnicomplete box
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
 
 "
 " PHP
