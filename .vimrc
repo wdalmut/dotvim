@@ -438,3 +438,6 @@ endif
 
 let g:airline_powerline_fonts = 1
 
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/](report|bin|cache|vendor)$',
+    \ }
