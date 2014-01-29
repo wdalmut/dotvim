@@ -12,6 +12,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'marik/vundle'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'corntrace/bufexplorer'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
@@ -30,6 +31,8 @@ Bundle 'rbgrouleff/bclose.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
 Bundle 'edkolev/tmuxline.vim'
+Bundle 'othree/html5.vim'
+Bundle 'wdalmut/vim-relatedtest'
 
 " Unmap arrow keys
 no <down> <Nop>
@@ -441,3 +444,5 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/](report|bin|cache|vendor)$',
     \ }
+
+let g:syntastic_html_checkers=['jshint']
