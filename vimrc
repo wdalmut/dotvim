@@ -33,24 +33,6 @@ Bundle 'edkolev/tmuxline.vim'
 Bundle 'othree/html5.vim'
 Bundle 'wdalmut/vim-relatedtest'
 
-" Unmap arrow keys
-no <down> <Nop>
-no <left> <Nop>
-no <right> <Nop>
-no <up> <Nop>
-ino <down> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
-ino <up> <Nop>
-vno <down> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
-vno <up> <Nop>
-
-" Exit insert mode with jk combination instead esc
-:inoremap jk <esc>
-":inoremap <esc> <nop>
-
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
 
@@ -277,8 +259,28 @@ augroup END
 " MAPPINGS
 "
 
+" Unmap arrow keys
+no <down> <Nop>
+no <left> <Nop>
+no <right> <Nop>
+no <up> <Nop>
+ino <down> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+ino <up> <Nop>
+vno <down> <Nop>
+vno <left> <Nop>
+vno <right> <Nop>
+vno <up> <Nop>
+
+" Exit insert mode with jk combination instead esc
+:inoremap jk <esc>
+":inoremap <esc> <nop>
+
 " Set the <Leader> for combo commands
 let mapleader = ","
+
+nmap ò :
 
 imap <Leader>z <ESC>l
 vmap <Leader>z <ESC><ESC>l
