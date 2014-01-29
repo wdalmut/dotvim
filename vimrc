@@ -15,7 +15,6 @@ Bundle 'marik/vundle'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'corntrace/bufexplorer'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-unimpaired'
@@ -445,4 +444,9 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/](report|bin|cache|vendor)$',
     \ }
 
+" Syntastic check
 let g:syntastic_html_checkers=['jshint']
+
+" Supertab config
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+

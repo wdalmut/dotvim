@@ -9,7 +9,8 @@ git clone --recursive https://github.com/wdalmut/dotvim.git .vim
 Link vimrc file
 
 ```
-ln -s ~/.vim/.vimrc ~/.vimrc
+ln -s ~/.vim/vimrc ~/.vimrc
+ln -s ~/.vim/tmux.conf ~/.tmux.conf
 ```
 
 Now launch vim and issue the install command...
