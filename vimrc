@@ -152,9 +152,6 @@ set showmode
 set ruler
 set relativenumber
 
-" Show line numbers - could be toggled on/off on-fly by pressing F6
-set number
-
 " Scroll when cursor gets within 10 characters of top/bottom edge
 set scrolloff=999
 
