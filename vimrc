@@ -57,9 +57,6 @@ filetype plugin indent on
 " Turn syntax highlighting on
 syntax on
 
-set iminsert=0
-set imsearch=0
-
 colorscheme molokai
 
 
@@ -74,10 +71,6 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
 
-" enable new 7.3 persistent undo feature
-"set undofile
-"set undodir=~/.vim/undo
-
 " enable 256 colors in screen
 set t_Co=256
 
@@ -90,9 +83,6 @@ set mouse=""
 
 " Make sure that unrecognized files are still indented
 set autoindent
-
-" Write contents of the file, if it has been modified, on buffer exit
-" set autowrite
 
 " Allow buffer to go into background - w/o losing the undo history and
 " w/o prior saving
@@ -136,7 +126,6 @@ set laststatus=2
 
 " Jump to matching bracket for 2/10th of a second (works with showmatch)
 set matchtime=2
-
 
 " Enable CTRL-A/CTRL-X to work on octal and hex numbers, as well as characters
 set nrformats=octal,hex,alpha
@@ -235,31 +224,16 @@ set guicursor=a:blinkon0
 " Plugins tuning
 "
 
-" Project
-let g:proj_flags="FisLt"
-let g:proj_window_width = 40
-
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': [] }
-
-" Gist
-let g:gist_detect_filetype = 1
-let g:gist_post_private = 1
-let g:gist_show_privates = 1
 
 " UltiSnips
 " let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsExpandTrigger="<C-b>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger="<C-p>"
-
-"
-" Folding
-"
-let g:php_folding = 2
-set foldlevel=5
 
 " Use j and k with omnicomplete box
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
@@ -284,7 +258,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 " Remove trailing spaces
-au FileType vim,php,c,python,html,twig,yml,xml,js,md au BufWritePre *.* :%s/\s\+$//e
+au FileType vim,php,c,python,html,twig,yml,xml,js,md,go au BufWritePre *.* :%s/\s\+$//e
 
 
 "run file with PHP CLI (CTRL-M)
@@ -320,19 +294,11 @@ map <Leader>tags :!ctags<CR> :set tags=tags<CR>
 " Large file
 let g:LargeFile = 2
 
-" Easy keymap switing
-imap <Leader>r <C-^>
-nmap <Leader>r a<C-^><ESC>
-
 " Easy tab navigation
 map tn :tabnext<CR>
 map tp :tabprevious<CR>
 map tc :tabnew<CR>
 map td :tabclose<CR>
-
-" Allows you to enter sudo pass and save the file
-" when you forgot to open your file with sudo
-cmap w!! %!sudo tee > /dev/null %
 
 " easy way to edit reload .vimrc
 nmap <Leader>V :source $MYVIMRC<CR>
@@ -348,8 +314,6 @@ vmap <Leader>l <ESC>:BufExplorer<CR>
 " vimdiff
 map ]] ]c
 map [[ [c
-map <Leader>gdi :Gdiff<CR>
-map <Leader>gst :Gstatus<CR>
 
 " Ability to open tag'ed document as vertical split
 " or a new tab
@@ -370,65 +334,27 @@ map <Leader>s :w<CR>
 imap <Leader>s <ESC>:w<CR>
 vmap <Leader>s <ESC><ESC>:w<CR>
 
-" Locate file in hierarchy quickly
-map <Leader>T :NERDTreeFind<CR>
-map <Leader>tree :NERDTreeToggle<CR>
+" Show folder structure
+map <Leader>tree :Vexplore<CR>
 
 " change the directory to the current file I'm working on
 " plays nicely with NERDTree - when file opened
 map ,cd :cd %:p:h
 " close buffer using bclose plugin (window is not closed)
 map ,w :Bclose<CR>
-" switch to upper/lower window quickly
-map <C-J> 5j
-map <C-K> 5k
-" use CTRL-F for omni completion
-imap <C-F> 
-" map CTRL-L to piece-wise copying of the line above the current one
-imap <C-L> @@@<ESC>hhkywjl?@@@<CR>P/@@@<CR>3s
-" map ,f to display all lines with keyword under cursor and ask which one to
-" jump to
-nmap ,f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
-" page down with <Space>
-" nmap <Space> <PageDown>
-
-" open filename under cursor in a new window (use current file's working
-" directory)
-nmap gf :new %:p:h/<cfile><CR>
-
-" map <Alt-p> and <Alt-P> to paste below/above and reformat
-nnoremap <Esc>P  P'[v']=
-nnoremap <Esc>p  p'[v']=
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
 " turn off search highlighting
 nmap <silent> <Leader>n :silent :nohlsearch<CR>
 
-" Make sure that CTRL-A (used by gnu screen) is redefined
-noremap <Leader>inc <C-A>
-
-map <Leader>cn :cn<CR>
-
 " Apache PIG syntax
 augroup filetypedetect
     au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 augroup END
 
-" Make for C project
-map <Leader>m <Esc>:!clear && make clean && make && ./randomstring<CR>
-" Compile single file
-map <Leader>co <Esc>:call CompileRunGcc()<CR>
-func! CompileRunGcc()
-    exec "w"
-    exec "!clear && gcc -Wall -pedantic-errors % -o %< && echo '\\n--------------------------------------------\\n' && ./%<"
-    "exec "! ./%<"
-endfunc
-
 nmap <Leader>x :TagbarToggle<CR>
-
-let g:EasyMotion_leader_key = '<Leader><Leader>'
 
 " Airline
 if !exists('g:airline_symbols')
