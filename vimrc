@@ -1,5 +1,4 @@
-"
-" MAIN CUSTOMIZATION FILE
+
 "
 set term=screen-256color
 
@@ -45,7 +44,7 @@ colorscheme molokai
 " make sure that ZF standards for maximum line height are honoured
 set colorcolumn=120
 let &colorcolumn=join(range(121,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=236 guibg=#2c2d27
 
 " Remove bars
 :set guioptions-=m  "remove menu bar
@@ -217,11 +216,6 @@ let g:UltiSnipsExpandTrigger="<C-b>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger="<C-p>"
 
-" Use j and k with omnicomplete box
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
-
-
 "
 " PHP
 "
@@ -273,22 +267,14 @@ vno <left> <Nop>
 vno <right> <Nop>
 vno <up> <Nop>
 
-" Exit insert mode with jk combination instead esc
+" Exit insert mode with jk
 :inoremap jk <esc>
-":inoremap <esc> <nop>
 
 " Set the <Leader> for combo commands
 let mapleader = ","
 
 nmap ò :
-
-imap <Leader>z <ESC>l
-vmap <Leader>z <ESC><ESC>l
-
-" Easy window resizing
-map <Leader>h 1<C-w><Bar>
-map <Leader>hh 35<C-w><Bar>
-nmap <Leader>cat :!cat ~/.vbuf<CR>
+vmap ò :
 
 " Prepare tags
 map <Leader>tags :!ctags<CR> :set tags=tags<CR>
@@ -301,6 +287,7 @@ map tn :tabnext<CR>
 map tp :tabprevious<CR>
 map tc :tabnew<CR>
 map td :tabclose<CR>
+map te :tabedit %<CR>
 
 " easy way to edit reload .vimrc
 nmap <Leader>V :source $MYVIMRC<CR>
@@ -310,26 +297,10 @@ nmap <Leader>todo :vsp ~/projects.todo.txt<CR>
 au FileType php noremap <Leader>t <ESC>:!phpunit --configuration tests/ <CR>
 
 map <Leader>l :BufExplorer<CR>
-imap <Leader>l <ESC>:BufExplorer<CR>
-vmap <Leader>l <ESC>:BufExplorer<CR>
 
 " vimdiff
 map ]] ]c
 map [[ [c
-
-" Ability to open tag'ed document as vertical split
-" or a new tab
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-"map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-
-" Allow to copy/paste between VIM instances
-"copy the current visual selection to ~/.vbuf
-vmap <Leader>y :w! ~/.vbuf<CR>
-"copy the current line to the buffer file if no visual selection
-nmap <Leader>y :.w! ~/.vbuf<CR>
-"paste the contents of the buffer file
-nmap <Leader>p :r ~/.vbuf<CR>
 
 " save changes
 map <Leader>s :w<CR>
@@ -366,7 +337,7 @@ endif
 let g:airline_powerline_fonts = 1
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](report|bin|cache|vendor)$',
+    \ 'dir': '\v[\/](report|bin|cache|vendor|docs)$',
     \ }
 
 " Syntastic check
