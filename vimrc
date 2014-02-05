@@ -210,6 +210,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 " UltiSnips
 " let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=["snippets"]
 let g:UltiSnipsExpandTrigger="<C-b>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger="<C-p>"
