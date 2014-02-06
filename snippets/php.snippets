@@ -16,30 +16,6 @@ class $2 extends $3
 }
 endsnippet
 
-snippet singleton "PHP Singleton Method"
-private static $instance;
-
-public static function getInstance()
-{
-	if (!self::$instance) {
-		self::$instance = new self();
-	}
-
-	return self::$instance;
-}
-
-$1
-endsnippet
-
-snippet factory "PHP Factory method"
-public static function factory($1)
-{
-	$2
-}
-
-$3
-endsnippet
-
 snippet testcase "PHP UnitTest Snippet"
 namespace $1;
 
@@ -97,3 +73,26 @@ snippet zf2route "ZF2 route"
 	'may_terminate' => $6
 ),
 endsnippet
+
+snippet pub "Public method"
+public function $1($2)
+{
+	$3
+}
+endsnippet
+
+snippet pri "Private method"
+private function $1($2)
+{
+	$3
+}
+endsnippet
+
+snippet pro "Protected method"
+protected function $1($2)
+{
+	$3
+}
+endsnippet
+
+
