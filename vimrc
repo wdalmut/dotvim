@@ -40,10 +40,12 @@ syntax on
 colorscheme molokai
 
 
-" make sure that ZF standards for maximum line height are honoured
-set colorcolumn=120
-let &colorcolumn=join(range(121,999),",")
-highlight ColorColumn ctermbg=236 guibg=#2c2d27
+" See 120 char line
+" set colorcolumn=120
+" let &colorcolumn=join(range(121,999),",")
+" highlight ColorColumn ctermbg=236 guibg=#2c2d27
+highlight ColorColumn ctermbg=55
+call matchadd('ColorColumn', '\%121v', 100)
 
 " Remove bars
 :set guioptions-=m  "remove menu bar
