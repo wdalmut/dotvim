@@ -30,6 +30,7 @@ Bundle 'edkolev/tmuxline.vim'
 Bundle 'othree/html5.vim'
 Bundle 'wdalmut/vim-relatedtest'
 Bundle 'joonty/vdebug'
+Bundle 'StanAngeloff/php.vim'
 
 " Enable loading filetype and indentation plugins
 filetype plugin indent on

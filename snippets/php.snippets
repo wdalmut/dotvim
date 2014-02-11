@@ -1,3 +1,12 @@
+snippet interface "PHP Interface"
+namespace $1;
+
+interface $2
+{
+	$3
+}
+endsnippet
+
 snippet class "PHP Empty Class"
 namespace $1;
 
@@ -46,20 +55,6 @@ trait $2
 }
 endsnippet
 
-snippet strategy "Add a strategy"
-private $strategy;
-
-public function setStrategy($strategy)
-{
-	$this->strategy = $strategy;
-}
-
-public function getStrategy()
-{
-	return $this->strategy;
-}
-endsnippet
-
 snippet zf2route "ZF2 route"
 "$1" => array(
 	"type" => "$2",
@@ -95,4 +90,35 @@ protected function $1($2)
 }
 endsnippet
 
+snippet gs "PHP Class Getter Setter" !b
+private $$1
 
+public function get${1/(\w+)\s*;/\u$1/}()
+{
+    return $this->${1/(\w+)\s*;/$1/};$2
+}
+
+public function set${1/(\w+)\s*;/\u$1/}($${1/(\w+)\s*;/$1/})
+{
+    $this->${1/(\w+)\s*;/$1/} = $${1/(\w+)\s*;/$1/};$3
+    ${4:return $this;}
+}
+$0
+endsnippet
+
+snippet getter "PHP Class Getter" !b
+public function get${1/\w+\s*/\u$0/}()
+{
+    return $this->$1;$2
+}
+$0
+endsnippet
+
+snippet setter "PHP Class Setter" !b
+public function set${1/\w+\s*/\u$0/}($$1)
+{
+    $this->$1 = $$1;$3
+    ${4:return $this;}
+}
+$0
+endsnippet
