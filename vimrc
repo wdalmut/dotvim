@@ -42,11 +42,9 @@ colorscheme molokai
 
 
 " See 120 char line
-" set colorcolumn=120
-" let &colorcolumn=join(range(121,999),",")
-" highlight ColorColumn ctermbg=236 guibg=#2c2d27
-highlight ColorColumn ctermbg=55
-call matchadd('ColorColumn', '\%121v', 100)
+set colorcolumn=120
+let &colorcolumn=join(range(121,999),",")
+highlight ColorColumn ctermbg=236 guibg=#2c2d27
 
 " Remove bars
 :set guioptions-=m  "remove menu bar
@@ -213,7 +211,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': [] }
 
 " UltiSnips
-" let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["snippets"]
 let g:UltiSnipsExpandTrigger="<C-b>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
@@ -298,6 +296,7 @@ nmap <Leader>v :vsp $MYVIMRC<CR>
 nmap <Leader>todo :vsp ~/projects.todo.txt<CR>
 
 au FileType php noremap <Leader>t <ESC>:!phpunit --configuration tests/ <CR>
+au FileType php noremap <Leader>ts <ESC>:!bin/phpspec run <CR>
 
 map <Leader>l :BufExplorer<CR>
 
@@ -312,6 +311,7 @@ vmap <Leader>s <ESC><ESC>:w<CR>
 
 " Show folder structure
 map <Leader>tree :Vexplore<CR>
+
 
 " change the directory to the current file I'm working on
 " plays nicely with NERDTree - when file opened
