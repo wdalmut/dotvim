@@ -295,8 +295,14 @@ nmap <Leader>V :source $MYVIMRC<CR>
 nmap <Leader>v :vsp $MYVIMRC<CR>
 nmap <Leader>todo :vsp ~/projects.todo.txt<CR>
 
-au FileType php noremap <Leader>t <ESC>:!phpunit --configuration tests/ <CR>
+au FileType php noremap <Leader>ta <ESC>:!phpunit --configuration tests/ <CR>
+au FileType php noremap <Leader>tr <ESC>:!phpunit --configuration tests/ %<CR>
 au FileType php noremap <Leader>ts <ESC>:!bin/phpspec run <CR>
+au FileType cucumber noremap <Leader>te <ESC>:exec g:runBehatScenario()<CR>
+
+func! g:runBehatScenario()
+    exec ":!bin/behat %:".line(".")
+endfunc
 
 map <Leader>l :BufExplorer<CR>
 
