@@ -293,7 +293,14 @@ map te :tabedit %<CR>
 " easy way to edit reload .vimrc
 nmap <Leader>V :source $MYVIMRC<CR>
 nmap <Leader>v :vsp $MYVIMRC<CR>
-nmap <Leader>todo :vsp ~/projects.todo.txt<CR>
+
+" git
+map <Leader>gs :Gstatus<CR>
+map <Leader>gd :Gdiff<CR>
+map <Leader>ge :Gedit<CR>
+map <Leader>gc :Gcommit -m ""<LEFT>
+map <Leader>ga :Gcommit -a -m ""<LEFT>
+map <Leader>gl :Gitv<CR>
 
 au FileType php noremap <Leader>ta <ESC>:!phpunit --configuration tests/ <CR>
 au FileType php noremap <Leader>tr <ESC>:!phpunit --configuration tests/ %<CR>
