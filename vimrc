@@ -305,6 +305,10 @@ map <Leader>gl :Gitv<CR>
 " uses expression to extract path from current file's path
 map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
+map <Leader>h :split <C-R>=expand("%:p:h") . '/'<CR>
+
+" Open todo notes
+map <Leader>todo :split ~/projects.todo.txt<CR>
 
 au FileType php noremap <Leader>ta <ESC>:!phpunit --configuration tests/ <CR>
 au FileType php noremap <Leader>tr <ESC>:!phpunit --configuration tests/ %<CR>
