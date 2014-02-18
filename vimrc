@@ -52,6 +52,9 @@ highlight ColorColumn ctermbg=236 guibg=#2c2d27
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
 
+set backupdir=~/.tmp
+set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
+
 " enable 256 colors in screen
 set t_Co=256
 
@@ -290,10 +293,6 @@ map tc :tabnew<CR>
 map td :tabclose<CR>
 map te :tabedit %<CR>
 
-" easy way to edit reload .vimrc
-nmap <Leader>V :source $MYVIMRC<CR>
-nmap <Leader>v :vsp $MYVIMRC<CR>
-
 " git
 map <Leader>gs :Gstatus<CR>
 map <Leader>gd :Gdiff<CR>
@@ -301,6 +300,11 @@ map <Leader>ge :Gedit<CR>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>ga :Gcommit -a -m ""<LEFT>
 map <Leader>gl :Gitv<CR>
+
+" Edit another file in the same directory as the current file
+" uses expression to extract path from current file's path
+map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
+map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
 au FileType php noremap <Leader>ta <ESC>:!phpunit --configuration tests/ <CR>
 au FileType php noremap <Leader>tr <ESC>:!phpunit --configuration tests/ %<CR>
