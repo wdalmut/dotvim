@@ -301,7 +301,7 @@ au FileType php noremap <Leader>ts <ESC>:!bin/phpspec run <CR>
 au FileType cucumber noremap <Leader>te <ESC>:exec g:runBehatScenario()<CR>
 
 func! g:runBehatScenario()
-    exec ":!bin/behat %:".line(".")
+    return ":!bin/behat %:".line(".")
 endfunc
 
 map <Leader>l :BufExplorer<CR>
