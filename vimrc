@@ -31,6 +31,7 @@ Bundle 'othree/html5.vim'
 Bundle 'wdalmut/vim-relatedtest'
 Bundle 'joonty/vdebug'
 Bundle 'StanAngeloff/php.vim'
+Bundle 'godlygeek/tabular'
 
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
@@ -306,6 +307,9 @@ map <Leader>gl :Gitv<CR>
 map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>h :split <C-R>=expand("%:p:h") . '/'<CR>
+
+" format table
+map <Leader>cu :Tabularize /\|<CR>
 
 " Open todo notes
 map <Leader>todo :split ~/projects.todo.txt<CR>
