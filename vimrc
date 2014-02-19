@@ -309,7 +309,7 @@ map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>h :split <C-R>=expand("%:p:h") . '/'<CR>
 
 " format table
-map <Leader>cu :Tabularize /\|<CR>
+noremap <Leader>tab :Tabularize /\|<CR>
 
 " Open todo notes
 map <Leader>todo :split ~/projects.todo.txt<CR>
@@ -335,7 +335,7 @@ imap <Leader>s <ESC>:w<CR>
 vmap <Leader>s <ESC><ESC>:w<CR>
 
 " close buffer using bclose plugin (window is not closed)
-map ,w :Bclose<CR>
+map <Leader>w :Bclose<CR>
 
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -366,4 +366,6 @@ let g:syntastic_html_checkers=['jshint']
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+let g:ctrlp_match_window = 'max:30'
 
