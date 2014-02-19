@@ -310,8 +310,8 @@ map <Leader>h :split <C-R>=expand("%:p:h") . '/'<CR>
 " Open todo notes
 map <Leader>todo :split ~/projects.todo.txt<CR>
 
-au FileType php noremap <Leader>ta <ESC>:!phpunit --configuration tests/ <CR>
-au FileType php noremap <Leader>tr <ESC>:!phpunit --configuration tests/ %<CR>
+au FileType php noremap <Leader>tau <ESC>:!phpunit --configuration tests/ <CR>
+au FileType php noremap <Leader>tu <ESC>:!phpunit --configuration tests/ %<CR>
 au FileType php noremap <Leader>ts <ESC>:!bin/phpspec run <CR>
 au FileType cucumber noremap <Leader>te <ESC>:exec g:runBehatScenario()<CR>
 
@@ -330,13 +330,6 @@ map <Leader>s :w<CR>
 imap <Leader>s <ESC>:w<CR>
 vmap <Leader>s <ESC><ESC>:w<CR>
 
-" Show folder structure
-map <Leader>tree :Vexplore<CR>
-
-
-" change the directory to the current file I'm working on
-" plays nicely with NERDTree - when file opened
-map ,cd :cd %:p:h
 " close buffer using bclose plugin (window is not closed)
 map ,w :Bclose<CR>
 
