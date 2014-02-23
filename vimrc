@@ -363,7 +363,7 @@ let g:ctrlp_match_window = 'max:30'
 
 "statusline setup
 set statusline =%#identifier#
-set statusline+=[%t]    "tail of the filename
+set statusline+=[%f]    "tail of the filename
 set statusline+=%*
 
 "display a warning if fileformat isnt unix
