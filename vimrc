@@ -297,8 +297,9 @@ map te :tabedit %<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>ge :Gedit<CR>
-map <Leader>gc :Gcommit -m ""<LEFT>
-map <Leader>ga :Gcommit -a -m ""<LEFT>
+map <Leader>gc :Gcommit<CR>
+map <Leader>ga :Gcommit -a<CR>
+map <Leader>gw :Gwrite<CR>
 map <Leader>gl :Gitv<CR>
 
 " Edit another file in the same directory as the current file
