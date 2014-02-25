@@ -240,19 +240,6 @@ autocmd BufWinLeave * call clearmatches()
 " Remove trailing spaces
 au FileType vim,php,c,python,html,twig,yml,xml,js,md,go au BufWritePre *.* :%s/\s\+$//e
 
-
-"run file with PHP CLI (CTRL-M)
-au FileType php noremap <C-M> :w!<CR>:!$HOME/bin/php %<CR>
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python set foldmethod=indent
-au FileType python set foldnestmax=2
-augroup sh
-    au!
-    "smart indent really only for C like languages
-    au FileType sh set nosmartindent autoindent
-    au FileType sh map <C-M> :QuickRun<CR>
-augroup END
-
 "
 " MAPPINGS
 "
@@ -281,17 +268,10 @@ nmap ò :
 vmap ò :
 
 " Prepare tags
-map <Leader>tags :!ctags<CR> :set tags=tags<CR>
+set tags=./tags;
 
 " Large file
 let g:LargeFile = 2
-
-" Easy tab navigation
-map tn :tabnext<CR>
-map tp :tabprevious<CR>
-map tc :tabnew<CR>
-map td :tabclose<CR>
-map te :tabedit %<CR>
 
 " git
 map <Leader>gs :Gstatus<CR>
