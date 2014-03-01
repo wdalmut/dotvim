@@ -38,7 +38,7 @@ filetype plugin indent on
 " Turn syntax highlighting on
 syntax on
 
-colorscheme molokai
+colorscheme wolokai
 
 
 " See 120 char line
