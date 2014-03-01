@@ -345,7 +345,7 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:ctrlp_match_window = 'max:30'
 
 "statusline setup
-set statusline =%#identifier#
+set statusline =%#StatusLineFilename#
 set statusline+=[%f]    "tail of the filename
 set statusline+=%*
 

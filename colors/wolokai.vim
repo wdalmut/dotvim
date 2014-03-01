@@ -60,6 +60,7 @@ if &t_Co > 255
    hi Ignore          ctermfg=244 ctermbg=232
    hi IncSearch       ctermfg=193 ctermbg=16
 
+
    hi keyword         ctermfg=161               cterm=bold
    hi Label           ctermfg=229               cterm=none
    hi Macro           ctermfg=193
@@ -95,7 +96,7 @@ if &t_Co > 255
    endif
    hi Statement       ctermfg=161               cterm=bold
    hi StatusLine      ctermfg=238 ctermbg=253
-   hi StatusLineNC    ctermfg=black ctermbg=black
+   hi StatusLineNC    ctermfg=233 ctermbg=233
    hi StorageClass    ctermfg=252
    hi Structure       ctermfg=81
    hi Tag             ctermfg=161
@@ -119,4 +120,8 @@ if &t_Co > 255
    hi NonText         ctermfg=59
 
    hi SpecialKey      ctermfg=59
+
+   " self defined
+   hi StatusLineFilename          ctermfg=29 cterm=bold
+   hi StatusLineGit     ctermfg=118
 end
