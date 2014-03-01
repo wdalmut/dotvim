@@ -40,17 +40,10 @@ syntax on
 
 colorscheme wolokai
 
-
 " See 120 char line
 set colorcolumn=120
 let &colorcolumn=join(range(121,999),",")
 highlight ColorColumn ctermbg=236 guibg=#2c2d27
-
-" Remove bars
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
-:set guioptions-=L  "remove left-hand scroll bar
 
 set backupdir=~/.tmp
 set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
@@ -201,6 +194,9 @@ let g:netrw_browse_split = 1
 " Make sure cursor is not blinking
 set guicursor=a:blinkon0
 
+" Do not fold by default
+set foldlevelstart=20
+
 "
 " Plugins tuning
 "
@@ -227,6 +223,10 @@ au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead *wsgi set filetype=python
 " HTML
 au BufRead,BufNewFile *.twig set filetype=html
+
+" Enable folds for cucumber (behat)
+au FileType cucumber set foldmethod=indent
+
 " highlight trailing space
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -234,6 +234,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
 " Remove trailing spaces
 au FileType vim,php,c,python,html,twig,yml,xml,js,md,go au BufWritePre *.* :%s/\s\+$//e
 
@@ -261,6 +262,7 @@ vno <up> <Nop>
 " Set the <Leader> for combo commands
 let mapleader = ","
 
+" IT keyboards
 nmap ò :
 vmap ò :
 
