@@ -264,10 +264,6 @@ let mapleader = ","
 nmap ò :
 vmap ò :
 
-" Window resizing
-nnoremap <C-l> 5<C-w>>
-nnoremap <C-h> 5<C-w><
-
 " Prepare tags
 set tags=./tags;
 
