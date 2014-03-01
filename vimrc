@@ -149,9 +149,6 @@ set tabstop=4
 " Expand tabs to spaces
 set expandtab
 
-" Wrap text after hitting the 120-char length
-set textwidth=120
-
 " do not wrap lines by default
 set nowrap
 
