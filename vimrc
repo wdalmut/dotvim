@@ -43,7 +43,7 @@ colorscheme wolokai
 " See 120 char line
 set colorcolumn=120
 let &colorcolumn=join(range(121,999),",")
-highlight ColorColumn ctermbg=236 guibg=#2c2d27
+highlight ColorColumn ctermbg=234
 
 set backupdir=~/.tmp
 set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
