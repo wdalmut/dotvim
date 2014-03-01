@@ -289,7 +289,7 @@ map <Leader>h :split <C-R>=expand("%:p:h") . '/'<CR>
 noremap <Leader>tab :Tabularize /\|<CR>
 
 " Open todo notes
-map <Leader>todo :split ~/projects.todo.txt<CR>
+map <Leader>todo :vs ~/projects.todo.txt<CR>
 
 au FileType php noremap <Leader>tau <ESC>:!phpunit --configuration tests/ <CR>
 au FileType php noremap <Leader>tu <ESC>:!phpunit --configuration tests/ %<CR>
