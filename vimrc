@@ -194,9 +194,6 @@ let g:netrw_browse_split = 1
 " Make sure cursor is not blinking
 set guicursor=a:blinkon0
 
-" Do not fold by default
-set foldlevelstart=20
-
 "
 " Plugins tuning
 "
@@ -224,8 +221,11 @@ au BufNewFile,BufRead *wsgi set filetype=python
 " HTML
 au BufRead,BufNewFile *.twig set filetype=html
 
-" Enable folds for cucumber (behat)
+" open all folds
+set foldlevelstart=99
+" Enable folds for cucumber, behat...
 au FileType cucumber set foldmethod=indent
+au FileType cucumber au BufWinEnter *.feature set foldlevel=1
 
 " highlight trailing space
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -280,6 +280,9 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>ga :Gcommit -a<CR>
 map <Leader>gw :Gwrite<CR>
 map <Leader>gl :Gitv<CR>
+
+" BDD
+map <Leader>pdesc :!bin/phpspec describe<SPACE>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -337,6 +340,7 @@ let g:ctrlp_custom_ignore = {
 
 " Syntastic check
 let g:syntastic_html_checkers=['jshint']
+let g:syntastic_php_checkers=['php']
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
