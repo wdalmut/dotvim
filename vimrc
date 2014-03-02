@@ -205,7 +205,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 " UltiSnips
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=["snippets"]
+let g:UltiSnipsSnippetDirectories=["mysnip"]
 let g:UltiSnipsExpandTrigger="<C-b>"
 let g:UltiSnipsJumpForwardTrigger="<C-n>"
 let g:UltiSnipsJumpBackwardTrigger="<C-p>"
@@ -290,6 +290,9 @@ map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>h :split <C-R>=expand("%:p:h") . '/'<CR>
 
+map + :vertical resize +5<cr>
+map - :vertical resize -5<cr>
+
 " format table
 noremap <Leader>tab :Tabularize /\|<CR>
 
@@ -298,7 +301,7 @@ map <Leader>todo :vs ~/projects.todo.txt<CR>
 
 au FileType php noremap <Leader>tau <ESC>:!phpunit --configuration tests/ <CR>
 au FileType php noremap <Leader>tu <ESC>:!phpunit --configuration tests/ %<CR>
-au FileType php noremap <Leader>ts <ESC>:!bin/phpspec run %<CR>
+au FileType php noremap <Leader>ts <ESC>:!bin/phpspec run -fpretty %<CR>
 au FileType php noremap <Leader>tas <ESC>:!bin/phpspec run<CR>
 au FileType cucumber noremap <Leader>te <ESC>:exec g:runBehatScenario()<CR>
 au FileType cucumber noremap <Leader>tae <ESC>:!bin/behat -fprogress<CR>
