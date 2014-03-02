@@ -290,8 +290,13 @@ map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>h :split <C-R>=expand("%:p:h") . '/'<CR>
 
+" easy split resize
 map + :vertical resize +5<cr>
 map - :vertical resize -5<cr>
+map = <c-w>=
+
+" open a new vertical split
+map <Leader>\| :vnew<cr>
 
 " format table
 noremap <Leader>tab :Tabularize /\|<CR>
