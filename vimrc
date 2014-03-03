@@ -196,6 +196,8 @@ let g:netrw_browse_split = 1
 " Make sure cursor is not blinking
 set guicursor=a:blinkon0
 
+command Q q
+
 "
 " Plugins tuning
 "
