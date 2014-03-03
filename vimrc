@@ -18,6 +18,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'gregsexton/gitv'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-php/tagbar-phpctags.vim'
 Bundle 'shawncplus/phpcomplete.vim'
@@ -354,6 +356,10 @@ let g:syntastic_php_checkers=['php']
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 let g:ctrlp_match_window = 'max:30'
+
+" Gist
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
 
 "statusline setup
 set statusline =%#StatusLineFilename#
