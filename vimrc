@@ -12,7 +12,7 @@ call vundle#rc()
 
 Bundle 'marik/vundle'
 Bundle 'jnwhiteh/vim-golang'
-Bundle 'corntrace/bufexplorer'
+Bundle 'fholgado/minibufexpl.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-unimpaired'
@@ -202,6 +202,10 @@ command Q q
 " Plugins tuning
 "
 
+" cloe buffer explorer on select
+let g:miniBufExplCloseOnSelect = 1
+let g:miniBufExplAutoStart = 0
+
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
@@ -319,7 +323,7 @@ func! g:runBehatScenario()
     return ":!bin/behat %:".line(".")
 endfunc
 
-map <Leader>l :BufExplorer<CR>
+map <Leader>l :MBEToggle<CR> :MBEFocus<CR>
 
 " vimdiff
 map ]] ]c
