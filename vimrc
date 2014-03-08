@@ -7,6 +7,16 @@ autocmd!
 
 set nocompatible              " be iMproved
 filetype off                  " required!
+
+"Install vundle
+let shouldInstallBundles = 0
+if !filereadable($HOME . "/.vim/bundle/vundle/README.md")
+    echo "~≥ Installing Vundle \n"
+    silent !mkdir -p $HOME/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle $HOME/.vim/bundle/vundle
+    let shouldInstallBundles = 1
+endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -33,6 +43,11 @@ Bundle 'wdalmut/vim-relatedtest'
 Bundle 'joonty/vdebug'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'godlygeek/tabular'
+
+if shouldInstallBundles == 1
+    echo "~> Installing vundle bundles"
+    :BundleInstall
+endif
 
 " Enable loading filetype and indentation plugins
 filetype plugin indent on
