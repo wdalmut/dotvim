@@ -203,11 +203,9 @@ command Q q
 "
 
 " cloe buffer explorer on select
-let g:miniBufExplCloseOnSelect = 1
 let g:miniBufExplAutoStart = 0
-let g:miniBufExplVSplit = 1
-let g:miniBufExplMaxSize = 55
-let g:miniBufExplMinSize = 55
+let g:miniBufExplCloseOnSelect = 1
+let g:miniBufExplVSplit = 35
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
