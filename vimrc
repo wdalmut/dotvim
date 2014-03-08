@@ -427,3 +427,8 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
+"allow project .vimrc
+set exrc
+"enable secure mode
+set secure
+
