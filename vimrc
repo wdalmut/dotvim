@@ -250,7 +250,7 @@ au BufRead,BufNewFile *.twig set filetype=html
 set foldlevelstart=99
 " Enable folds for cucumber, behat...
 au FileType cucumber set foldmethod=indent
-au FileType cucumber au BufWinEnter *.feature set foldlevel=1
+au FileType cucumber au BufWinEnter *.feature set foldlevel=99
 
 " highlight trailing space
 highlight ExtraWhitespace ctermbg=red guibg=red
