@@ -351,6 +351,9 @@ map <Leader>s :w<CR>
 imap <Leader>s <ESC>:w<CR>
 vmap <Leader>s <ESC><ESC>:w<CR>
 
+map <Leader><Leader> :w<CR>
+imap <Leader><Leader> <ESC>:w<CR>
+vmap <Leader><Leader> <ESC><ESC>:w<CR>
 " close buffer using bclose plugin (window is not closed)
 map <Leader>w :Bclose<CR>
 
@@ -368,7 +371,7 @@ augroup END
 nmap <Leader>x :TagbarToggle<CR>
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](report|bin|cache|vendor)$',
+    \ 'dir': '\v[\/](report|bin|cache|vendor|node_modules|dist|bower_components)$',
     \ }
 
 " Syntastic check
