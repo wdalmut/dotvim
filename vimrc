@@ -36,12 +36,13 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'rbgrouleff/bclose.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'ervandew/supertab'
 Bundle 'othree/html5.vim'
 Bundle 'wdalmut/vim-relatedtest'
 Bundle 'joonty/vdebug'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'godlygeek/tabular'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'arnaud-lb/vim-php-namespace'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -293,6 +294,7 @@ vmap ò :
 
 " Prepare tags
 set tags=./tags;
+map <Leader>tags :!ctags -R --languages= .<LEFT><LEFT>
 
 " Large file
 let g:LargeFile = 2
@@ -308,6 +310,9 @@ map <Leader>gl :Gitv<CR>
 
 " BDD
 map <Leader>pdesc :!bin/phpspec describe<SPACE>
+
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -351,9 +356,6 @@ map <Leader>s :w<CR>
 imap <Leader>s <ESC>:w<CR>
 vmap <Leader>s <ESC><ESC>:w<CR>
 
-map <Leader><Leader> :w<CR>
-imap <Leader><Leader> <ESC>:w<CR>
-vmap <Leader><Leader> <ESC><ESC>:w<CR>
 " close buffer using bclose plugin (window is not closed)
 map <Leader>w :Bclose<CR>
 
