@@ -20,7 +20,6 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'marik/vundle'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'tpope/vim-fugitive'
@@ -43,6 +42,7 @@ Bundle 'StanAngeloff/php.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'arnaud-lb/vim-php-namespace'
+Bundle 'jaxbot/github-issues.vim'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -231,8 +231,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["mysnip"]
 let g:UltiSnipsExpandTrigger="<C-b>"
-let g:UltiSnipsJumpForwardTrigger="<C-n>"
-let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-k>"))
