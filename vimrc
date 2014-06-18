@@ -112,8 +112,8 @@ set ignorecase
 " Ignore case only if seach string is all lowercase
 set smartcase
 
-" Make sure that tabline is always present
-set showtabline=2
+" Make sure that tabline is present only if it is needed
+set showtabline=1
 
 " Always show status line, even for one window
 set laststatus=2
@@ -438,3 +438,4 @@ set exrc
 "enable secure mode
 set secure
 
+source ~/.exrc
