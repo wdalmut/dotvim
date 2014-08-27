@@ -20,7 +20,7 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
@@ -43,6 +43,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'jaxbot/github-issues.vim'
+Bundle 'saltstack/salt-vim'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -60,7 +61,7 @@ colorscheme wolokai
 " See 120 char line
 set colorcolumn=120
 let &colorcolumn=join(range(121,999),",")
-highlight ColorColumn ctermbg=234
+highlight ColorColumn ctermbg=235
 
 set backupdir=~/.tmp
 set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
@@ -211,8 +212,6 @@ let g:netrw_browse_split = 1
 " Make sure cursor is not blinking
 set guicursor=a:blinkon0
 
-command Q q
-
 "
 " Plugins tuning
 "
@@ -261,8 +260,10 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" autocmd Filetype scheme setlocal ts=2 sts=2 sw=2
+
 " Remove trailing spaces
-au FileType vim,php,c,python,html,twig,yml,xml,js,md,go au BufWritePre *.* :%s/\s\+$//e
+au FileType vim,php,c,python,html,twig,yml,xml,js,md,go,sls au BufWritePre *.* :%s/\s\+$//e
 
 "
 " MAPPINGS
@@ -439,3 +440,4 @@ set exrc
 set secure
 
 source ~/.exrc
+
