@@ -10,40 +10,40 @@ filetype off                  " required!
 
 "Install vundle
 let shouldInstallBundles = 0
-if !filereadable($HOME . "/.vim/bundle/vundle/README.md")
+if !filereadable($HOME . "/.vim/bundle/Vundle.vim/README.md")
     echo "~≥ Installing Vundle \n"
     silent !mkdir -p $HOME/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle $HOME/.vim/bundle/vundle
+    silent !git clone https://github.com/gmarik/Vundle $HOME/.vim/bundle/Vundle.vim
     let shouldInstallBundles = 1
 endif
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
-Bundle 'fatih/vim-go'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'scrooloose/syntastic'
-Bundle 'gregsexton/gitv'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'vim-php/tagbar-phpctags.vim'
-Bundle 'shawncplus/phpcomplete.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'rbgrouleff/bclose.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'othree/html5.vim'
-Bundle 'wdalmut/vim-relatedtest'
-Bundle 'joonty/vdebug'
-Bundle 'StanAngeloff/php.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'arnaud-lb/vim-php-namespace'
-Bundle 'jaxbot/github-issues.vim'
-Bundle 'saltstack/salt-vim'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'fatih/vim-go'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'scrooloose/syntastic'
+Plugin 'gregsexton/gitv'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'rbgrouleff/bclose.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'othree/html5.vim'
+Plugin 'wdalmut/vim-relatedtest'
+Plugin 'joonty/vdebug'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'saltstack/salt-vim'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -236,6 +236,10 @@ let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-k>"))
 "
+" 80 column on text files
+"
+au BufRead,BufNewFile *.md setlocal textwidth=80
+"
 " PHP
 "
 au FileType php set omnifunc=phpcomplete#CompletePHP
@@ -310,7 +314,7 @@ map <Leader>gw :Gwrite<CR>
 map <Leader>gl :Gitv<CR>
 
 " BDD
-map <Leader>pdesc :!bin/phpspec describe<SPACE>
+map <Leader>pdesc :!vendor/bin/phpspec describe<SPACE>
 
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
@@ -335,10 +339,11 @@ noremap <Leader>tab :Tabularize /\|<CR>
 " Open todo notes
 map <Leader>todo :vs ~/projects.todo.txt<CR>
 
-au FileType php noremap <Leader>tau <ESC>:!phpunit --configuration tests/ <CR>
-au FileType php noremap <Leader>tu <ESC>:!phpunit --configuration tests/ %<CR>
-au FileType php noremap <Leader>ts <ESC>:!bin/phpspec run -fpretty %<CR>
-au FileType php noremap <Leader>tas <ESC>:!bin/phpspec run<CR>
+au FileType php noremap <Leader>tau <ESC>:!vendor/bin/phpunit <CR>
+au FileType php noremap <Leader>tu  <ESC>:!vendor/bin/phpunit %<CR>
+au FileType php noremap <Leader>ts  <ESC>:!vendor/bin/phpspec run -fpretty %<CR>
+au FileType php noremap <Leader>tas <ESC>:!vendor/bin/phpspec run<CR>
+au FileType php noremap <Leader>fix <ESC>:!php-cs-fixer.phar fix --level=all %<CR>
 au FileType cucumber noremap <Leader>te <ESC>:exec g:runBehatScenario()<CR>
 au FileType cucumber noremap <Leader>tae <ESC>:!bin/behat -fprogress<CR>
 
