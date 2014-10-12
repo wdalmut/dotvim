@@ -44,6 +44,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'saltstack/salt-vim'
+Plugin 'tpope/vim-surround'
+Plugin 'kchmck/vim-coffee-script'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -264,7 +266,8 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" autocmd Filetype scheme setlocal ts=2 sts=2 sw=2
+" Use 2 space on specific files
+autocmd Filetype scheme,coffee,javascript setlocal ts=2 sts=2 sw=2
 
 " Remove trailing spaces
 au FileType vim,php,c,python,html,twig,yml,xml,js,md,go,sls au BufWritePre *.* :%s/\s\+$//e
