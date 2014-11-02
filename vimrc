@@ -46,6 +46,7 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'saltstack/salt-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'tclem/vim-arduino'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -251,6 +252,9 @@ au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead *wsgi set filetype=python
 " HTML
 au BufRead,BufNewFile *.twig set filetype=html
+" Arduino
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
 
 " open all folds
 set foldlevelstart=99
@@ -270,7 +274,7 @@ autocmd BufWinLeave * call clearmatches()
 autocmd Filetype scheme,coffee,javascript setlocal ts=2 sts=2 sw=2
 
 " Remove trailing spaces
-au FileType vim,php,c,python,html,twig,yml,xml,js,md,go,sls au BufWritePre *.* :%s/\s\+$//e
+au FileType vim,php,c,python,html,twig,yml,xml,js,md,sls au BufWritePre *.* :%s/\s\+$//e
 
 "
 " MAPPINGS
@@ -397,6 +401,10 @@ let g:ctrlp_match_window = 'max:30'
 " Gist
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
+
+"Arduino
+let g:vim_arduino_library_path = "~/arduino"
+let g:vim_arduino_serial_port = "/dev/ttyACM0"
 
 "statusline setup
 set statusline =%#StatusLineFilename#
