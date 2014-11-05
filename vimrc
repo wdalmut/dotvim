@@ -41,12 +41,11 @@ Plugin 'wdalmut/vim-relatedtest'
 Plugin 'joonty/vdebug'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'godlygeek/tabular'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'saltstack/salt-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'tclem/vim-arduino'
+Plugin 'jplaut/vim-arduino-ino'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -228,6 +227,7 @@ let g:miniBufExplVSplit = 35
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': [] }
+let g:syntastic_c_avrgcc_config_file = '.config'
 
 " UltiSnips
 let g:UltiSnipsEditSplit="vertical"
@@ -271,10 +271,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Use 2 space on specific files
-autocmd Filetype scheme,coffee,javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype sls,coffee,js setlocal ts=2 sts=2 sw=2
 
 " Remove trailing spaces
-au FileType vim,php,c,python,html,twig,yml,xml,js,md,sls au BufWritePre *.* :%s/\s\+$//e
+au FileType arduino,vim,php,c,python,html,twig,yml,xml,js,md,sls au BufWritePre *.* :%s/\s\+$//e
 
 "
 " MAPPINGS
