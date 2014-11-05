@@ -249,7 +249,7 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 " LESS
 au BufNewFile,BufRead *.less set filetype=less
 " WSGI
-au BufNewFile,BufRead *wsgi set filetype=python
+au BufNewFile,BufRead *.wsgi set filetype=python
 " HTML
 au BufRead,BufNewFile *.twig set filetype=html
 " Arduino
