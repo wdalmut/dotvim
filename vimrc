@@ -200,6 +200,9 @@ set wildmode=list:longest,full
 " Go back to the position the cursor was on the last time this file was edited
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal `\"")|endif
 
+au VimEnter * silent !setxkbmap -option caps:escape
+
+
 " Fix my <Backspace> key (in Mac OS X Terminal)
 set t_kb=
 fixdel
@@ -267,7 +270,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Use 2 space on specific files
-autocmd Filetype sls,coffee,js setlocal ts=2 sts=2 sw=2
+autocmd Filetype sls,coffee,js,yaml setlocal ts=2 sts=2 sw=2
 
 " Remove trailing spaces
 au FileType vim,php,c,python,html,twig,yml,xml,js,md,sls au BufWritePre *.* :%s/\s\+$//e
