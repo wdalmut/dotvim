@@ -3,7 +3,7 @@ namespace $1;
 
 interface $2
 {
-	$3
+    $3
 }
 endsnippet
 
@@ -12,7 +12,7 @@ namespace $1;
 
 class $2
 {
-	$3
+    $3
 }
 endsnippet
 
@@ -21,7 +21,7 @@ namespace $1;
 
 class $2 extends $3
 {
-	$4
+    $4
 }
 endsnippet
 
@@ -30,19 +30,19 @@ namespace $1;
 
 class $2Test extends \PHPUnit_Framework_TestCase
 {
-	public function setUp()
-	{
-		$3
-	}
+    public function setUp()
+    {
+        $3
+    }
 
-	$4
+    $4
 }
 endsnippet
 
 snippet test "Add a new test method"
 public function test$1()
 {
-	$2
+    $2
 }
 endsnippet
 
@@ -51,42 +51,42 @@ namespace $1;
 
 trait $2
 {
-	$3
+    $3
 }
 endsnippet
 
 snippet zf2route "ZF2 route"
 "$1" => array(
-	"type" => "$2",
-	"options" => array(
-		"route" => "$3",
-		'defaults' => array(
-			'controller' => '$4',
-			'action' => '$5',
-		)
-	),
-	'may_terminate' => $6
+    "type" => "$2",
+    "options" => array(
+        "route" => "$3",
+        'defaults' => array(
+            'controller' => '$4',
+            'action' => '$5',
+        )
+    ),
+    'may_terminate' => $6
 ),
 endsnippet
 
 snippet pub "Public method"
 public function $1($2)
 {
-	$3
+    $3
 }
 endsnippet
 
 snippet pri "Private method"
 private function $1($2)
 {
-	$3
+    $3
 }
 endsnippet
 
 snippet pro "Protected method"
 protected function $1($2)
 {
-	$3
+    $3
 }
 endsnippet
 
