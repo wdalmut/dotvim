@@ -45,6 +45,8 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'saltstack/salt-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'ervandew/supertab'
+Plugin 'Herzult/phpspec-vim'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -200,7 +202,8 @@ set wildmode=list:longest,full
 " Go back to the position the cursor was on the last time this file was edited
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal `\"")|endif
 
-au VimEnter * silent !setxkbmap -option caps:escape
+" Caps to Esc
+"au VimEnter * silent !setxkbmap -option caps:escape
 
 
 " Fix my <Backspace> key (in Mac OS X Terminal)
@@ -305,7 +308,7 @@ vmap ò :
 
 " Prepare tags
 set tags=./tags;
-map <Leader>tags :!ctags -R --languages= .<LEFT><LEFT>
+map <Leader>tags :!ctags -R --exclude=.subsplit --exclude=.git --exclude=*cache* --languages= .<LEFT><LEFT>
 
 " Large file
 let g:LargeFile = 2
@@ -318,9 +321,6 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>ga :Gcommit -a<CR>
 map <Leader>gw :Gwrite<CR>
 map <Leader>gl :Gitv<CR>
-
-" BDD
-map <Leader>pdesc :!vendor/bin/phpspec describe<SPACE>
 
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
@@ -342,14 +342,8 @@ map <Leader>\| :vnew<cr>
 " format table
 noremap <Leader>tab :Tabularize /\|<CR>
 
-" Open todo notes
-map <Leader>todo :vs ~/projects.todo.txt<CR>
-
 au FileType php noremap <Leader>tau <ESC>:!vendor/bin/phpunit <CR>
 au FileType php noremap <Leader>tu  <ESC>:!vendor/bin/phpunit %<CR>
-au FileType php noremap <Leader>ts  <ESC>:!vendor/bin/phpspec run -fpretty %<CR>
-au FileType php noremap <Leader>tas <ESC>:!vendor/bin/phpspec run<CR>
-au FileType php noremap <Leader>fix <ESC>:!php-cs-fixer.phar fix --level=all %<CR>
 au FileType cucumber noremap <Leader>te <ESC>:exec g:runBehatScenario()<CR>
 au FileType cucumber noremap <Leader>tae <ESC>:!bin/behat -fprogress<CR>
 
@@ -382,6 +376,11 @@ augroup filetypedetect
     au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 augroup END
 
+
+" Update php tags when save
+au BufWritePost *.php silent exec ':!ctags -a --languages=php %'
+
+
 nmap <Leader>x :TagbarToggle<CR>
 
 let g:ctrlp_custom_ignore = {
@@ -400,6 +399,15 @@ let g:ctrlp_match_window = 'max:30'
 " Gist
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
+
+" PhpSpec
+let g:phpspec_default_mapping=0
+:let g:phpspec_run_cmd_options='-fprogress'
+
+noremap <Leader>pdesc :PhpSpecDesc<SPACE>
+au FileType php noremap <Leader>ts :PhpSpecRunCurrent<CR>
+au FileType php noremap <Leader>tas : PhpSpecRun<CR>
+
 
 "statusline setup
 set statusline =%#StatusLineFilename#
