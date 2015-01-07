@@ -46,7 +46,6 @@ Plugin 'saltstack/salt-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Herzult/phpspec-vim'
-Plugin 'Valloric/YouCompleteMe'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
