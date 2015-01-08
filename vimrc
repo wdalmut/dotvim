@@ -14,6 +14,7 @@ if !filereadable($HOME . "/.vim/bundle/Vundle.vim/README.md")
     echo "~≥ Installing Vundle \n"
     silent !mkdir -p $HOME/.vim/bundle
     silent !git clone https://github.com/gmarik/Vundle $HOME/.vim/bundle/Vundle.vim
+    silent !mkdir -p $HOME/.tmp
     let shouldInstallBundles = 1
 endif
 
