@@ -41,12 +41,13 @@ Plugin 'othree/html5.vim'
 Plugin 'wdalmut/vim-relatedtest'
 Plugin 'joonty/vdebug'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'godlygeek/tabular'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'saltstack/salt-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Herzult/phpspec-vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -257,6 +258,8 @@ au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead *.wsgi set filetype=python
 " HTML
 au BufRead,BufNewFile *.twig set filetype=html
+" MARKDOWN
+au BufRead,BufNewFile *.md,*mdown set filetype=markdown
 
 " open all folds
 set foldlevelstart=99
