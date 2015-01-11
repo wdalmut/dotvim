@@ -38,7 +38,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'rbgrouleff/bclose.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'othree/html5.vim'
-Plugin 'wdalmut/vim-relatedtest'
 Plugin 'joonty/vdebug'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
@@ -348,10 +347,10 @@ noremap <Leader>tab :Tabularize /\|<CR>
 
 au FileType php noremap <Leader>tau <ESC>:Test <CR>
 au FileType php noremap <Leader>tu  <ESC>:Test %<CR>
-au FileType cucumber noremap <Leader>te <ESC>:exec g:runBehatScenario()<CR>
+au FileType cucumber noremap <Leader>te <ESC>:exec s:runBehatScenario()<CR>
 au FileType cucumber noremap <Leader>tae <ESC>:!bin/behat -fprogress<CR>
 
-func! g:runBehatScenario()
+func! s:runBehatScenario()
     return ":!bin/behat %:".line(".")
 endfunc
 
