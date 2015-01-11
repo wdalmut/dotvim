@@ -1,0 +1,14 @@
+#!/bin/sh
+
+tmux has-session -t project
+
+tmux new-session -s project -n home -d
+
+tmux new-window -t project:1
+tmux send-keys 'vim' 'C-m'
+
+tmux new-window -t project:2
+
+tmux select-window -t project:1
+
+tmux -2 attach-session -t project
