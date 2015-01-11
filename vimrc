@@ -48,6 +48,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Herzult/phpspec-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'joonty/vim-phpunitqf'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -345,8 +346,8 @@ map <Leader>\| :vnew<cr>
 " format table
 noremap <Leader>tab :Tabularize /\|<CR>
 
-au FileType php noremap <Leader>tau <ESC>:!vendor/bin/phpunit <CR>
-au FileType php noremap <Leader>tu  <ESC>:!vendor/bin/phpunit %<CR>
+au FileType php noremap <Leader>tau <ESC>:Test <CR>
+au FileType php noremap <Leader>tu  <ESC>:Test %<CR>
 au FileType cucumber noremap <Leader>te <ESC>:exec g:runBehatScenario()<CR>
 au FileType cucumber noremap <Leader>tae <ESC>:!bin/behat -fprogress<CR>
 
@@ -387,7 +388,7 @@ au BufWritePost *.php silent exec ':!ctags -a --languages=php %'
 nmap <Leader>x :TagbarToggle<CR>
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](report|bin|cache|vendor|node_modules|dist|bower_components)$',
+    \ 'dir': '\v[\/](report|bin|cache|vendor|node_modules|dist|bower_components|_site)$',
     \ }
 
 " Syntastic check
