@@ -389,13 +389,10 @@ augroup filetypedetect
     au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 augroup END
 
-
-" Update php tags when save
-au BufWritePost *.php silent exec ':!ctags -a --languages=php %'
-
-
+" Show tagbar
 nmap <Leader>x :TagbarToggle<CR>
 
+" Ignore folders for ctrlp
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/](report|bin|cache|vendor|node_modules|dist|bower_components|_site)$',
     \ }
