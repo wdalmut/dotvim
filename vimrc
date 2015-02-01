@@ -345,10 +345,18 @@ map <Leader>\| :vnew<cr>
 " format table
 noremap <Leader>tab :Tabularize /\|<CR>
 
+" phpunit
 au FileType php noremap <Leader>tau <ESC>:Test <CR>
 au FileType php noremap <Leader>tu  <ESC>:Test %<CR>
 au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="--filter " . @"<ESC>:Test<CR>
 au FileType php noremap <Leader>to  <ESC>:TestOutput<CR>
+
+" phpspec
+noremap <Leader>pdesc :PhpSpecDesc<SPACE>
+au FileType php noremap <Leader>ts :PhpSpecRunCurrent<CR>
+au FileType php noremap <Leader>tas : PhpSpecRun<CR>
+
+" behat
 au FileType cucumber noremap <Leader>te <ESC>:exec s:runBehatScenario()<CR>
 au FileType cucumber noremap <Leader>tae <ESC>:!bin/behat -fprogress<CR>
 
@@ -409,10 +417,8 @@ let g:gist_post_private = 1
 let g:phpspec_default_mapping=0
 :let g:phpspec_run_cmd_options='-fprogress'
 
-noremap <Leader>pdesc :PhpSpecDesc<SPACE>
-au FileType php noremap <Leader>ts :PhpSpecRunCurrent<CR>
-au FileType php noremap <Leader>tas : PhpSpecRun<CR>
-
+" Phpunit
+let g:phpunit_quickfix = 0
 
 "statusline setup
 set statusline =%#StatusLineFilename#
