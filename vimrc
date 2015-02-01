@@ -347,6 +347,8 @@ noremap <Leader>tab :Tabularize /\|<CR>
 
 au FileType php noremap <Leader>tau <ESC>:Test <CR>
 au FileType php noremap <Leader>tu  <ESC>:Test %<CR>
+au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="--filter " . @"<ESC>:Test<CR>
+au FileType php noremap <Leader>to  <ESC>:TestOutput<CR>
 au FileType cucumber noremap <Leader>te <ESC>:exec s:runBehatScenario()<CR>
 au FileType cucumber noremap <Leader>tae <ESC>:!bin/behat -fprogress<CR>
 
@@ -460,6 +462,10 @@ set statusline+=\ %P    "percent through file
 set exrc
 "enable secure mode
 set secure
+
+"Correct
+iab flase       false
+iab clinet      client
 
 source ~/.exrc
 
