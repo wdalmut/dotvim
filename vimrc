@@ -348,7 +348,7 @@ noremap <Leader>tab :Tabularize /\|<CR>
 
 " phpunit
 au FileType php noremap <Leader>tau <ESC>:let g:phpunit_args_append=""<ESC>:Test <CR>
-au FileType php noremap <Leader>tu  <ESC>:Test %<CR>
+au FileType php noremap <Leader>tu  <ESC>:let g:phpunit_args_append=""<ESC>:Test %<CR>
 au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="--filter " . @t<ESC>:Test<CR>
 au FileType php noremap <Leader>to  <ESC>:TestOutput<CR>
 
