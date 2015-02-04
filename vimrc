@@ -47,7 +47,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Herzult/phpspec-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'joonty/vim-phpunitqf'
+Plugin 'wdalmut/vim-relatedtest'
+Plugin 'wdalmut/vim-phpunit'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -346,9 +347,9 @@ map <Leader>\| :vnew<cr>
 noremap <Leader>tab :Tabularize /\|<CR>
 
 " phpunit
-au FileType php noremap <Leader>tau <ESC>:Test <CR>
+au FileType php noremap <Leader>tau <ESC>:let g:phpunit_args_append=""<ESC>:Test <CR>
 au FileType php noremap <Leader>tu  <ESC>:Test %<CR>
-au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="--filter " . @"<ESC>:Test<CR>
+au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="--filter " . @t<ESC>:Test<CR>
 au FileType php noremap <Leader>to  <ESC>:TestOutput<CR>
 
 " phpspec
@@ -468,6 +469,7 @@ set secure
 
 "Correct
 iab flase       false
+iab ture        true
 iab clinet      client
 
 source ~/.exrc
