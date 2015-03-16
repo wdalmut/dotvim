@@ -49,6 +49,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'wdalmut/vim-relatedtest'
 Plugin 'wdalmut/vim-phpunit'
+Plugin 'tomasr/molokai'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -61,8 +62,10 @@ filetype plugin indent on
 " Turn syntax highlighting on
 syntax on
 
-colorscheme wolokai
+colorscheme molokai
+let g:molokai_original = 1
 
+"
 " See 120 char line
 set colorcolumn=120
 let &colorcolumn=join(range(121,999),",")
@@ -249,6 +252,7 @@ inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-k>"))
 " 80 column on text files
 "
 au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.rst setlocal textwidth=80
 "
 " PHP
 "
@@ -277,7 +281,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Use 2 space on specific files
-autocmd Filetype sls,coffee,js,yaml setlocal ts=2 sts=2 sw=2
+autocmd Filetype sls,coffee,js,javascript,yaml setlocal ts=2 sts=2 sw=2
 
 " Remove trailing spaces
 au FileType vim,php,c,python,html,twig,yml,xml,js,md,sls au BufWritePre *.* :%s/\s\+$//e
@@ -349,13 +353,13 @@ noremap <Leader>tab :Tabularize /\|<CR>
 " phpunit
 au FileType php noremap <Leader>tau <ESC>:let g:phpunit_args_append=""<ESC>:Test <CR>
 au FileType php noremap <Leader>tu  <ESC>:let g:phpunit_args_append=""<ESC>:Test %<CR>
-au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="--filter " . @t<ESC>:Test<CR>
+au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="-v --filter " . @t<ESC>:Test<CR>
 au FileType php noremap <Leader>to  <ESC>:TestOutput<CR>
 
 " phpspec
 noremap <Leader>pdesc :PhpSpecDesc<SPACE>
-au FileType php noremap <Leader>ts :PhpSpecRunCurrent<CR>
-au FileType php noremap <Leader>tas : PhpSpecRun<CR>
+au FileType php noremap <Leader>ts <ESC>:let g:phpspec_run_cmd_options="-fpretty"<ESC>:PhpSpecRunCurrent <CR>
+au FileType php noremap <Leader>tas <ESC>:let g:phpspec_run_cmd_options="-fprogress"<ESC>:PhpSpecRun <CR>
 
 " behat
 au FileType cucumber noremap <Leader>te <ESC>:exec s:runBehatScenario()<CR>
@@ -395,8 +399,12 @@ nmap <Leader>x :TagbarToggle<CR>
 
 " Ignore folders for ctrlp
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](report|bin|cache|vendor|node_modules|dist|bower_components|_site)$',
+    \ 'dir': '\v[\/](report|build|_build|bin|cache|vendor|node_modules|dist|bower_components|_site)$',
     \ }
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*~
+
+" do not change the current path
+let g:ctrlp_working_path_mode = '0'
 
 " Syntastic check
 let g:syntastic_html_checkers=['jshint']
@@ -413,10 +421,9 @@ let g:gist_post_private = 1
 
 " PhpSpec
 let g:phpspec_default_mapping=0
-:let g:phpspec_run_cmd_options='-fprogress'
 
 " Phpunit
-let g:phpunit_quickfix = 0
+let g:phpunit_args="--colors"
 
 "statusline setup
 set statusline =%#StatusLineFilename#
@@ -472,5 +479,7 @@ iab flase       false
 iab ture        true
 iab clinet      client
 
-source ~/.exrc
+if filereadable("~/.exrc")
+    source ~/.exrc
+endif
 
