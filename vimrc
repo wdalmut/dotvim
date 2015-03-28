@@ -50,6 +50,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'wdalmut/vim-relatedtest'
 Plugin 'wdalmut/vim-phpunit'
 Plugin 'tomasr/molokai'
+Plugin 'benmills/vimux'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -272,6 +273,9 @@ set foldlevelstart=99
 au FileType cucumber set foldmethod=indent
 au FileType cucumber au BufWinEnter *.feature set foldlevel=99
 
+" Coffeescript folding
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+
 " highlight trailing space
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -329,6 +333,12 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>ga :Gcommit -a<CR>
 map <Leader>gw :Gwrite<CR>
 map <Leader>gl :Gitv<CR>
+
+" Tmux integration
+let g:VimuxOrientation="h"
+nmap <Leader>r :VimuxRunCommand ''<Left>
+nmap <Leader>R :VimuxCloseRunner<CR>
+
 
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
