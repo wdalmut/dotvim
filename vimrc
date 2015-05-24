@@ -50,7 +50,9 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'wdalmut/vim-relatedtest'
 Plugin 'wdalmut/vim-phpunit'
 Plugin 'tomasr/molokai'
+Plugin 'w0ng/vim-hybrid'
 Plugin 'benmills/vimux'
+Plugin 'derekwyatt/vim-scala'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -63,7 +65,7 @@ filetype plugin indent on
 " Turn syntax highlighting on
 syntax on
 
-colorscheme molokai
+colorscheme hybrid
 let g:molokai_original = 1
 
 "
@@ -270,8 +272,7 @@ au BufRead,BufNewFile *.md,*mdown set filetype=markdown
 " open all folds
 set foldlevelstart=99
 " Enable folds for cucumber, behat...
-au FileType cucumber set foldmethod=indent
-au FileType cucumber au BufWinEnter *.feature set foldlevel=99
+autocmd BufNewFile,BufReadPost *.feature setl foldmethod=indent nofoldenable
 
 " Coffeescript folding
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
@@ -493,3 +494,8 @@ if filereadable("~/.exrc")
     source ~/.exrc
 endif
 
+" override colors for PHP
+let php_var_selector_is_identifier=1
+
+" exclude vendor folder during search
+:set wildignore+=**/vendor/**
