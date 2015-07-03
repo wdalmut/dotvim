@@ -1,16 +1,20 @@
-snippet composer "Composer JSON file" 
+snippet composer "Composer JSON file"
 {
-    "require": {
-        $1
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4",
-        "phpspec/phpspec": "~2"
-    },
-    "autoload": {
-        "psr-0": {
-            "": "src"
-        }
+  require": {
+    $1
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "": "tests/"
+    }
+  }
 }
 endsnippet
