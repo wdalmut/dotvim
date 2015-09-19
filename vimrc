@@ -46,13 +46,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Herzult/phpspec-vim'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'wdalmut/vim-relatedtest'
 Plugin 'wdalmut/vim-phpunit'
 Plugin 'tomasr/molokai'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'benmills/vimux'
-Plugin 'derekwyatt/vim-scala'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'tpope/vim-markdown'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -335,12 +335,20 @@ map <Leader>ga :Gcommit -a<CR>
 map <Leader>gw :Gwrite<CR>
 map <Leader>gl :Gitv<CR>
 
+" Disable markdown preview
+let g:instant_markdown_autostart = 0
+" Open preview window
+map <Leader>mp :InstantMarkdownPreview<CR>
+
+" Create folder at current path
+map <Leader>mk :!mkdir -p %:h<CR><CR>
+
 " Tmux integration
 let g:VimuxOrientation="h"
 nmap <Leader>r :VimuxRunCommand ''<Left>
 nmap <Leader>R :VimuxCloseRunner<CR>
 
-
+" PHP Namespaces
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
 
@@ -385,6 +393,8 @@ map <Leader>l :MBEToggle<CR> :MBEFocus<CR>
 " vimdiff
 map ]] ]c
 map [[ [c
+
+map <Leader>co :copen<CR>
 
 " save changes
 map <Leader>s :w<CR>
