@@ -44,11 +44,10 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'saltstack/salt-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'Herzult/phpspec-vim'
+Plugin 'sophacles/vim-processing'
 Plugin 'godlygeek/tabular'
 Plugin 'wdalmut/vim-relatedtest'
 Plugin 'wdalmut/vim-phpunit'
-Plugin 'tomasr/molokai'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'benmills/vimux'
 Plugin 'suan/vim-instant-markdown'
@@ -65,8 +64,8 @@ filetype plugin indent on
 " Turn syntax highlighting on
 syntax on
 
+set background=dark
 colorscheme hybrid
-let g:molokai_original = 1
 
 "
 " See 120 char line
@@ -102,7 +101,6 @@ set cursorline
 
 " Insert mode completion options
 set completeopt=menuone
-
 " Allow smarter completion by infering the case
 set infercase
 
@@ -338,7 +336,7 @@ map <Leader>gl :Gitv<CR>
 " Disable markdown preview
 let g:instant_markdown_autostart = 0
 " Open preview window
-map <Leader>mp :InstantMarkdownPreview<CR>
+map <Leader>mdp :InstantMarkdownPreview<CR>
 
 " Create folder at current path
 map <Leader>mk :!mkdir -p %:h<CR><CR>
@@ -491,22 +489,26 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
-"allow project .vimrc
-set exrc
-"enable secure mode
-set secure
-
 "Correct
 iab flase       false
 iab ture        true
 iab clinet      client
 
+" override colors for PHP
+let php_var_selector_is_identifier=1
+
+" golang imports
+let g:go_fmt_command = "goimports"
+
+" exclude vendor folder during search
+:set wildignore+=**/vendor/**
+
+"allow project .vimrc
+set exrc
+"enable secure mode
+set secure
+
 if filereadable("~/.exrc")
     source ~/.exrc
 endif
 
-" override colors for PHP
-let php_var_selector_is_identifier=1
-
-" exclude vendor folder during search
-:set wildignore+=**/vendor/**
