@@ -36,7 +36,7 @@ Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'rbgrouleff/bclose.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'othree/html5.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
@@ -354,6 +354,7 @@ noremap <Leader>u :call PhpInsertUse()<CR>
 map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>h :split <C-R>=expand("%:p:h") . '/'<CR>
+map <Leader>mv :!mv % <C-R>=expand("%:p:h") . '/'<CR>
 
 " easy split resize
 map + :vertical resize +5<cr>
