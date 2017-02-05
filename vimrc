@@ -22,7 +22,6 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'fatih/vim-go'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
@@ -40,15 +39,11 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'othree/html5.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'saltstack/salt-vim'
 Plugin 'tpope/vim-surround'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'sophacles/vim-processing'
 Plugin 'godlygeek/tabular'
 Plugin 'wdalmut/vim-relatedtest'
 Plugin 'wdalmut/vim-phpunit'
 Plugin 'w0ng/vim-hybrid'
-Plugin 'benmills/vimux'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-markdown'
 
@@ -286,24 +281,24 @@ autocmd BufWinLeave * call clearmatches()
 autocmd Filetype sls,coffee,js,javascript,yaml setlocal ts=2 sts=2 sw=2
 
 " Remove trailing spaces
-au FileType vim,php,c,python,html,twig,yml,xml,js,md,sls au BufWritePre *.* :%s/\s\+$//e
+au FileType vim,php,c,python,html,twig,yml,xml,js,javascript,md,sls au BufWritePre *.* :%s/\s\+$//e
 
 "
 " MAPPINGS
 "
 
 " Unmap arrow keys
-no <down> <Nop>
-no <left> <Nop>
-no <right> <Nop>
-no <up> <Nop>
+no <down> ddp
+no <left> <
+no <right> >
+no <up> ddkP
 ino <down> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
+ino <left> <
+ino <right> >
 ino <up> <Nop>
 vno <down> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
+vno <left> <
+vno <right> >
 vno <up> <Nop>
 
 " Exit insert mode with jk
