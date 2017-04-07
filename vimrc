@@ -262,6 +262,7 @@ au BufRead,BufNewFile *.twig set filetype=html
 au BufRead,BufNewFile *.md,*mdown set filetype=markdown
 
 " open all folds
+set foldmethod=indent
 set foldlevelstart=99
 " Enable folds for cucumber, behat...
 autocmd BufNewFile,BufReadPost *.feature setl foldmethod=indent nofoldenable
@@ -288,18 +289,18 @@ au FileType vim,php,c,python,html,twig,yml,xml,js,javascript,md,sls au BufWriteP
 "
 
 " Unmap arrow keys
-no <down> ddp
+no <up> <Nop>
+no <down> <Nop>
 no <left> <
 no <right> >
-no <up> ddkP
+ino <up> <Nop>
 ino <down> <Nop>
 ino <left> <
 ino <right> >
-ino <up> <Nop>
-vno <down> <Nop>
-vno <left> <
-vno <right> >
 vno <up> <Nop>
+vno <down> <Nop>
+vno <left> <gv
+vno <right> >gv
 
 " Exit insert mode with jk
 :inoremap jk <esc>
@@ -368,19 +369,6 @@ au FileType php noremap <Leader>tu  <ESC>:let g:phpunit_args_append=""<ESC>:Test
 au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="-v --filter " . @t<ESC>:Test<CR>
 au FileType php noremap <Leader>to  <ESC>:TestOutput<CR>
 
-" phpspec
-noremap <Leader>pdesc :PhpSpecDesc<SPACE>
-au FileType php noremap <Leader>ts <ESC>:let g:phpspec_run_cmd_options="-fpretty"<ESC>:PhpSpecRunCurrent <CR>
-au FileType php noremap <Leader>tas <ESC>:let g:phpspec_run_cmd_options="-fprogress"<ESC>:PhpSpecRun <CR>
-
-" behat
-au FileType cucumber noremap <Leader>te <ESC>:exec s:runBehatScenario()<CR>
-au FileType cucumber noremap <Leader>tae <ESC>:!bin/behat -fprogress<CR>
-
-func! s:runBehatScenario()
-    return ":!bin/behat %:".line(".")
-endfunc
-
 map <Leader>l :MBEToggle<CR> :MBEFocus<CR>
 
 " vimdiff
@@ -402,11 +390,6 @@ vnoremap < <gv
 vnoremap > >gv
 " turn off search highlighting
 nmap <silent> <Leader>n :silent :nohlsearch<CR>
-
-" Apache PIG syntax
-augroup filetypedetect
-    au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
-augroup END
 
 " Show tagbar
 nmap <Leader>x :TagbarToggle<CR>
@@ -433,9 +416,6 @@ let g:ctrlp_match_window = 'max:30'
 " Gist
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
-
-" PhpSpec
-let g:phpspec_default_mapping=0
 
 " Phpunit
 let g:phpunit_args="--colors"
@@ -491,9 +471,6 @@ iab clinet      client
 
 " override colors for PHP
 let php_var_selector_is_identifier=1
-
-" golang imports
-let g:go_fmt_command = "goimports"
 
 " exclude vendor folder during search
 :set wildignore+=**/vendor/**
