@@ -141,7 +141,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-assign [class="Google-chrome"] $wp2
+#assign [class="Google-chrome"] $wp2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -219,6 +219,6 @@ for_window [class="Nautilus"] floating enable
 exec_always feh --bg-fill ~/Pictures/Wallpapers/eb255d77-db84-43f2-abee-ee3bfa4968e7.jpg
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-terminal
-exec --no-startup-id google-chrome
+#exec --no-startup-id google-chrome
 exec guake
 
