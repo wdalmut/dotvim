@@ -28,14 +28,18 @@ endsnippet
 snippet testcase "PHP UnitTest Snippet"
 namespace $1;
 
-class $2Test extends \PHPUnit_Framework_TestCase
-{
-    public function setUp()
-    {
-        $3
-    }
+use PHPUnit\Framework\TestCase;
 
-    $4
+class $2Test extends TestCase
+{
+    $3
+}
+endsnippet
+
+snippet setup "Add the setUp method"
+public function setUp()
+{
+    $1
 }
 endsnippet
 
