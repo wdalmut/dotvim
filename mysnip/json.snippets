@@ -27,3 +27,116 @@ snippet complex
     }
 }
 endsnippet
+
+snippet ref
+{"Ref": $1}
+endsnippet
+
+snippet cf
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        $1
+    },
+    "Resources": {
+        $2
+    },
+    "Outputs": {
+        $3
+    }
+}
+endsnippet
+
+snippet vpc
+"$1": {
+   "Type" : "AWS::EC2::VPC",
+   "Properties" : {
+      "CidrBlock" : $2,
+      "EnableDnsSupport" : $3,
+      "EnableDnsHostnames" : $4,
+      "Tags" : []
+   }
+}
+endsnippet
+
+snippet subnet
+"$1": {
+    "Type" : "AWS::EC2::Subnet",
+    "Properties" : {
+        "AvailabilityZone" : $2,
+        "CidrBlock" : $3,
+        "MapPublicIpOnLaunch" : true,
+        "Tags" : [],
+        "VpcId" : $4
+    }
+}
+endsnippet
+
+snippet igw
+"$1": {
+    "Type" : "AWS::EC2::InternetGateway",
+    "Properties" : {
+        "Tags" : []
+    }
+}
+endsnippet
+
+snippet tag
+{"Key": "$1", "Value": "$2"}
+endsnippet
+
+snippet routetable
+"$1": {
+   "Type" : "AWS::EC2::RouteTable",
+   "Properties" : {
+      "VpcId" : $2,
+      "Tags" : []
+   }
+}
+endsnippet
+
+snippet routetableassociation
+"$1": {
+   "Type" : "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties" : {
+      "RouteTableId" : $2,
+      "SubnetId" : $3
+   }
+}
+endsnippet
+
+snippet igwattach
+"$1": {
+   "Type" : "AWS::EC2::VPCGatewayAttachment",
+   "Properties" : {
+      "InternetGatewayId" : $2,
+      "VpcId" : $3
+   }
+}
+endsnippet
+
+snippet out
+"$1" : {
+    "Description" : "$2",
+    "Value" : $3,
+    "Export" : {
+        "Name" : "$4"
+    }
+}
+endsnippet
+
+snippet param
+"$1" : {
+    "Type" : "$2",
+    "Default" : "$3",
+    "Description" : "$4"
+}
+endsnippet
+
+snippet stackname
+${AWS::StackName}
+endsnippet
+
+snippet sub
+{"Fn::Sub": "$1" }
+endsnippet
