@@ -140,3 +140,20 @@ endsnippet
 snippet sub
 {"Fn::Sub": "$1" }
 endsnippet
+
+snippet sg
+"$1": {
+  "Type" : "AWS::EC2::SecurityGroup",
+  "Properties" : {
+     "GroupDescription" : $2,
+     "SecurityGroupEgress" : [],
+     "SecurityGroupIngress" : [],
+     "Tags" :  [],
+     "VpcId" : $3
+  }
+}
+endsnippet
+
+snippet import
+{"Fn::ImportValue" : $1}
+endsnippet
