@@ -46,6 +46,8 @@ Plugin 'wdalmut/vim-phpunit'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -463,6 +465,16 @@ set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
+
+" Alias
+fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+call SetupCommandAlias("W","w")
+call SetupCommandAlias("Q","q")
+call SetupCommandAlias("Wq","wq")
 
 "Correct
 iab flase       false
