@@ -48,6 +48,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-markdown'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'elixir-editors/vim-elixir'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -281,7 +282,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Use 2 space on specific files
-autocmd Filetype sls,coffee,js,javascript,yaml setlocal ts=2 sts=2 sw=2
+autocmd Filetype sls,coffee,js,javascript,json,yaml setlocal ts=2 sts=2 sw=2
 
 " Remove trailing spaces
 au FileType vim,php,c,python,html,twig,yml,xml,js,javascript,md,sls au BufWritePre *.* :%s/\s\+$//e
@@ -398,7 +399,7 @@ nmap <Leader>x :TagbarToggle<CR>
 
 " Ignore folders for ctrlp
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](report|build|_build|bin|cache|vendor|node_modules|dist|bower_components|_site)$',
+    \ 'dir': '\v[\/](report|build|docs|doc|deps|_build|bin|cache|vendor|node_modules|dist|bower_components|_site)$',
     \ }
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*~
 
@@ -475,6 +476,9 @@ endfun
 call SetupCommandAlias("W","w")
 call SetupCommandAlias("Q","q")
 call SetupCommandAlias("Wq","wq")
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 "Correct
 iab flase       false
