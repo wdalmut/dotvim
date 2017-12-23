@@ -21,4 +21,7 @@ alias academy='export PS1=export PS1="\033[1;34mcmd: \033[0m"'
 alias ufficio='xrandr --output eDP1 --off --output DP1 --auto --panning 3840x2160 --fb 3840x2160 --scale 2x2'
 alias laptop='xrandr --output DP1 --off --output eDP1 --auto'
 
-PATH=${PATH}:~/bin:~/node/bin
+alias l='ls -l'
+alias ll='ls -las'
+
+PATH=${PATH}:~/bin:~/node/bin:~/php/sapi/cli
