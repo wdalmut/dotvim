@@ -14,7 +14,6 @@ alias crypt="openssl rsautl -encrypt -inkey ~/.ssh/id_rsa | base64"
 alias decrypt="base64 -d |  openssl rsautl -decrypt -inkey ~/.ssh/id_rsa"
 
 alias xcp="xclip -i -selection clipboard"
-alias claer="clear"
 
 alias academy='export PS1=export PS1="\033[1;34mcmd: \033[0m"'
 
@@ -23,5 +22,7 @@ alias laptop='xrandr --output DP1 --off --output eDP1 --auto'
 
 alias l='ls -l'
 alias ll='ls -las'
+
+alias mynet='nmtui'
 
 PATH=${PATH}:~/bin:~/node/bin:~/php/sapi/cli
