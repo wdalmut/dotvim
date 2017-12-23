@@ -218,7 +218,6 @@ bindsym $mod+Print exec "sleep 0.4; scrot -q 100 -s ${HOME}'/Pictures/Screenshot
 # Screenshot current focused window
 bindsym Shift+Print exec "scrot -q 100 -u ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png'"
 
-for_window [instance="guake"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="Arandr"] floating enable
 # gsettings set org.gnome.desktop.background show-desktop-icons false
@@ -229,7 +228,6 @@ exec "setxkbmap -layout it"
 #exec_always feh --bg-fill ~/Pictures/Wallpapers/eb255d77-db84-43f2-abee-ee3bfa4968e7.jpg
 #exec --no-startup-id nm-applet
 #exec --no-startup-id blueman-applet
-exec --no-startup-id gnome-terminal
+exec --no-startup-id i3-sensible-terminal
 #exec --no-startup-id google-chrome
-#exec guake
 
