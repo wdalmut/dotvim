@@ -17,8 +17,8 @@ alias xcp="xclip -i -selection clipboard"
 
 alias academy='export PS1=export PS1="\033[1;34mcmd: \033[0m"'
 
-alias ufficio='xrandr --output eDP1 --off --output DP1 --auto --panning 3840x2160 --fb 3840x2160 --scale 2x2'
-alias laptop='xrandr --output DP1 --off --output eDP1 --auto'
+alias ufficio='xrandr --output eDP-1 --off --output DP-1 --auto --panning 3840x2160 --fb 3840x2160 --scale 2x2'
+alias laptop='xrandr --output DP-1 --off --output eDP-1 --auto'
 
 alias l='ls -l'
 alias ll='ls -las'
@@ -26,3 +26,5 @@ alias ll='ls -las'
 alias mynet='nmtui'
 
 PATH=${PATH}:~/bin:~/node/bin:~/php/sapi/cli
+
+source ~/.git-completion.bash

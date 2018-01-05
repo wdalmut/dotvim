@@ -18,14 +18,25 @@ Rxvt.letterSpace: 1
 !URxvt.modifier: super
 
 !! perl extensions
-URxvt.perl-ext:             default,url-select,clipboard
+!URxvt.perl-ext:             default,url-select,clipboard
 
 ! url-select (part of urxvt-perls package)
-URxvt.keysym.M-u:           perl:url-select:select_next
+!URxvt.keysym.M-u:           perl:url-select:select_next
+!URxvt.url-select.autocopy:  true
+!URxvt.url-select.button:    2
+!URxvt.url-select.launcher:  chromium
+!URxvt.url-select.underline: true
+
+URxvt.perl-ext-common:      default,clipboard,resize-font,url-select,keyboard-select
 URxvt.url-select.autocopy:  true
-URxvt.url-select.button:    2
 URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+
+URxvt.resize-font.bigger: C-Up
+URxvt.resize-font.smaller: C-Down
 
 ! Nastavuje kopirovani
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste

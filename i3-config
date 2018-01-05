@@ -225,7 +225,7 @@ for_window [class="Nautilus"] floating enable
 
 exec "setxkbmap -layout it"
 
-#exec_always feh --bg-fill ~/Pictures/Wallpapers/eb255d77-db84-43f2-abee-ee3bfa4968e7.jpg
+exec_always feh --bg-fill ${HOME}/.vim/nuovo.png
 #exec --no-startup-id nm-applet
 #exec --no-startup-id blueman-applet
 exec --no-startup-id i3-sensible-terminal
