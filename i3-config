@@ -212,22 +212,18 @@ bindsym XF86MonBrightnessUp exec xbacklight +5
 
 # Screenshots
 # Screenshot fullscreen
-bindsym Print exec "scrot -q 100 ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png'"
+bindsym Print exec "scrot ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png'"
 # Screenshot with selection
-bindsym $mod+Print exec "sleep 0.4; scrot -q 100 -s ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png'"
+bindsym $mod+Print exec "sleep 0.4; scrot -s ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png'"
 # Screenshot current focused window
-bindsym Shift+Print exec "scrot -q 100 -u ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png'"
+bindsym Shift+Print exec "scrot -u ${HOME}'/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png'"
 
 for_window [class="VirtualBox"] floating enable
 for_window [class="Arandr"] floating enable
-# gsettings set org.gnome.desktop.background show-desktop-icons false
 for_window [class="Nautilus"] floating enable
 
 exec "setxkbmap -layout it"
 
-exec_always feh --bg-fill ${HOME}/.vim/nuovo.png
-#exec --no-startup-id nm-applet
-#exec --no-startup-id blueman-applet
+exec_always feh --bg-scale ${HOME}/.vim/nuovo.png
 exec --no-startup-id i3-sensible-terminal
-#exec --no-startup-id google-chrome
 
