@@ -49,6 +49,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -217,6 +218,8 @@ fixdel
 let loaded_matchparen = 1
 
 " netRW: Open files in a split window
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 let g:netrw_browse_split = 1
 
 " Make sure cursor is not blinking
@@ -490,6 +493,10 @@ let php_var_selector_is_identifier=1
 
 " exclude vendor folder during search
 :set wildignore+=**/vendor/**
+
+" Copy using xclip
+vmap <F6> :!xclip -f -sel clip<CR>
+map <F7> :-1r !xclip -o -sel clip<CR>
 
 "allow project .vimrc
 set exrc

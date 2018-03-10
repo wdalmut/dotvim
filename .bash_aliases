@@ -1,5 +1,7 @@
 # ~/.wdm executed by bash
 
+stty -ixon
+
 export EDITOR=vim
 
 source ~/.bash-git-prompt/gitprompt.sh
@@ -25,6 +27,6 @@ alias ll='ls -las'
 
 alias mynet='nmtui'
 
-PATH=${PATH}:~/bin:~/node/bin:~/php/sapi/cli
+PATH=${PATH}:~/bin:~/node/bin:~/php/sapi/cli:~/go/bin:~/jdk/bin
 
 source ~/.git-completion.bash
