@@ -411,7 +411,8 @@ let g:ctrlp_working_path_mode = '0'
 
 " Syntastic check
 let g:syntastic_html_checkers=['jshint']
-let g:syntastic_json_checkers=['jshint']
+let g:syntastic_json_checkers=['jsonlint']
+let g:syntastic_javascript_checkers=['standard']
 let g:syntastic_php_checkers=['php']
 
 " Supertab config
