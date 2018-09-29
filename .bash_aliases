@@ -27,6 +27,10 @@ alias ll='ls -las'
 
 alias mynet='nmtui'
 
-PATH=${PATH}:~/bin:~/node/bin:~/php/sapi/cli:~/go/bin:~/jdk/bin
+PATH=${PATH}:~/bin:~/node/bin:~/go/bin:~/jdk/bin
 
 source ~/.git-completion.bash
+source <(kubectl completion bash)
+
+xset -b
+
