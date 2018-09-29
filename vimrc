@@ -322,6 +322,10 @@ vmap ò :
 set tags=./tags;
 map <Leader>tags :!ctags -R --exclude=.subsplit --exclude=.git --exclude=*cache* --languages= .<LEFT><LEFT>
 
+" italian
+map <Leader>it :setlocal spell spelllang=it<CR>
+map <Leader>nit :set nospell<CR>
+
 " Large file
 let g:LargeFile = 2
 
@@ -412,7 +416,7 @@ let g:ctrlp_working_path_mode = '0'
 " Syntastic check
 let g:syntastic_html_checkers=['jshint']
 let g:syntastic_json_checkers=['jsonlint']
-let g:syntastic_javascript_checkers=['standard']
+let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_php_checkers=['php']
 
 " Supertab config
