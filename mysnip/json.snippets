@@ -1,30 +1,7 @@
-snippet obj
-{"type": "object"}
-endsnippet
-
-snippet str
-{"type": "string"}
-endsnippet
-
-snippet arr
-{"type": "array"}
-endsnippet
-
-snippet int
-{"type": "integer"}
-endsnippet
-
-snippet type
-"$1": {"type": "${2:string}}
-endsnippet
-
-snippet complex
-"$1": {
-  "type": "object",
-  "location": "${2:json}",
-  "properties: {
-    $3
-  }
+snippet jshintrc
+{
+  "esversion": 6,
+  "asi": true
 }
 endsnippet
 
