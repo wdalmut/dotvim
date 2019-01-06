@@ -117,14 +117,14 @@ set hlsearch
 " Ignore case when searching
 set ignorecase
 
-" Ignore case only if seach string is all lowercase
+" Ignore case only if search string is all lowercase
 set smartcase
 
 " Make sure that tabline is present only if it is needed
 set showtabline=1
 
 " Always show status line, even for one window
-set laststatus=2
+set laststatus=1
 
 " Jump to matching bracket for 2/10th of a second (works with showmatch)
 set matchtime=2
@@ -137,7 +137,6 @@ set nrformats=octal,hex,alpha
 nnoremap <F4> :set invpaste paste?<CR>
 set pastetoggle=<F4>
 set showmode
-
 
 " Show line, column number, and relative position within a file in the status line
 set ruler
@@ -345,11 +344,6 @@ map <Leader>mdp :InstantMarkdownPreview<CR>
 
 " Create folder at current path
 map <Leader>mk :!mkdir -p %:h<CR><CR>
-
-" Tmux integration
-let g:VimuxOrientation="h"
-nmap <Leader>r :VimuxRunCommand ''<Left>
-nmap <Leader>R :VimuxCloseRunner<CR>
 
 " PHP Namespaces
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
