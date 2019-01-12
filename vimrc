@@ -124,7 +124,7 @@ set smartcase
 set showtabline=1
 
 " Always show status line, even for one window
-set laststatus=1
+set laststatus=2
 
 " Jump to matching bracket for 2/10th of a second (works with showmatch)
 set matchtime=2
@@ -372,6 +372,11 @@ au FileType php noremap <Leader>tau <ESC>:let g:phpunit_args_append=""<ESC>:Test
 au FileType php noremap <Leader>tu  <ESC>:let g:phpunit_args_append=""<ESC>:Test %<CR>
 au FileType php noremap <Leader>tt <ESC>:let g:phpunit_args_append="-v --filter " . @t<ESC>:Test<CR>
 au FileType php noremap <Leader>to  <ESC>:TestOutput<CR>
+
+" javascript
+au FileType javascript noremap <Leader>tu <ESC>:!npm test %<CR>
+au FileType javascript noremap <Leader>tau <ESC>:!npm test<CR>
+au FileType javascript noremap <Leader>tt <ESC>:let g:test_filter=@t<CR>:exe "!npm test -- --filter=\"".g:test_filter."\""<CR>
 
 map <Leader>l :MBEToggle<CR> :MBEFocus<CR>
 
