@@ -27,29 +27,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/syntastic'
-Plugin 'gregsexton/gitv'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-php/tagbar-phpctags.vim'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'rbgrouleff/bclose.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'othree/html5.vim'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'wdalmut/vim-relatedtest'
-Plugin 'wdalmut/vim-phpunit'
 Plugin 'w0ng/vim-hybrid'
-Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-markdown'
 Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
 
 if shouldInstallBundles == 1
     echo "~> Installing vundle bundles"
@@ -61,6 +47,7 @@ filetype plugin indent on
 
 " Turn syntax highlighting on
 syntax on
+set omnifunc=syntaxcomplete#Complete
 
 set background=dark
 colorscheme hybrid

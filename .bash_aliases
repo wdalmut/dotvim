@@ -29,7 +29,7 @@ alias mynet='nmtui'
 
 PATH=${PATH}:~/bin:~/node/bin:~/go/bin:~/jdk/bin
 
-source ~/.git-completion.bash
+source /usr/share/git/completion/git-prompt.sh
 source <(kubectl completion bash)
 
 xset -b
